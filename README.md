@@ -1,6 +1,8 @@
 # Project Machu Picchu-*Wonderful Life*
 ## Executive Summary
-*Wonderful Life* is a sub-project of *Machu Picchu*, an open-source collaborative humanitarian project. *Wonderful Life* simulates how persons in need of similar profiles can help themselves mutually.
+*Wonderful Life* is a sub-project of *Machu Picchu*, an open-source collaborative humanitarian project. *Wonderful Life* simulates how persons in need of similar profiles can help themselves mutually. In this demo, we still use an International Helper Organisa--zation (World Food Program, UNICEF, BRAC etc.). The full process, involving blockchain collecting safety net common pool and distributing in case of hardship, is too complex for the scope of a hackathon.
+
+**Contributions from hackers to Machu Picchu are welcome in the future.**
 
 *Wonderful Life* is an entry to the 2025 hackathon ETH Global *Agentic Ethereum*. It is a rough sketch that shows an agent that receive profiles of **Persons in need**, make embeddings of these profiles and stores the profile in IPFS, as well as the embedding vector. Both IPFS hashes are stored in the blockchain for notarial purposes and for other Inclusive Finance purposes. Another agent, or the same agent, is used to match the purposes of a Humanitarian Helper Project Sheet with potential candidates to be helped.
 
