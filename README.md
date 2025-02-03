@@ -16,10 +16,10 @@ The complete scenario is told in a DeepSeek chatbot session https://github.com/k
 ![Overall View](./images/wonderful_life_overall.png)
 
 There are 2 actors in this demo, the Person in Need and the International Helper Organization. Note that in real life and in Machu Picchu there are more actors.
-- Person in Need sumbmits its profile in free text to International Helper Organization
-- International Helper Organization does the embedding, store i-on IPFS the original profiel text and the vector
+- **Person in Need** submits its profile in free text to **International Helper Organization**
+- **International Helper Organization** does the embedding, store i-on IPFS the original profiel text and the vector
 - When the IPFS CID are received, it stores them on blockchain
-- When International Helper Organization receives a Program Sheet of a helper Program, it makes the embedding of it and matches the vector with the closest profiles of Person in Need.
+- When **International Helper Organization** receives a Program Sheet of a helper Program, it makes the embedding of it and matches the vector with the closest profiles of Person in Need.
 
 
 ### State Machine Profile Embedding Agent
@@ -28,7 +28,7 @@ There are 2 actors in this demo, the Person in Need and the International Helper
 ![matching State Machine](./images/wonderful_life_states2.png)
 
 ## Bonus: origin of the names *Machu Picchu* and *Wonderful Life*
-- *Machu Picchu*, an Inca citadel built in the 15th century, is nestled high in the Andes Mountains of Peru. It was brought to wider attention in 1911 by Hiram Bingham. Its construction is remarkable for its sophisticated dry-stone walls, which fit together perfectly without mortar. The purpose of Machu Picchu remains a mystery, with theories ranging from a royal retreat to a sacred religious site.
+- *Machu Picchu*, an Inca citadel built in the 15th century, is nestled high in the Andes Mountains of Peru. It was brought to wider attention in 1911 by Hiram Bingham. Its construction is remarkable for its sophisticated dry-stone walls, which fit together perfectly without mortar. Huge blocks carefully craftyed to make a still bigger citadel..
 - *It's a Wonderful Life* is a 1946 Christmas fantasy drama film produced and directed by Frank Capra, starring James Stewart as George Bailey, a man who has given up his personal dreams in order to help others in his community. His thoughts of suicide on Christmas Eve bring about the intervention of his guardian angel, Clarence Odbody. Clarence shows George all the lives he touched and what the world would be like, if he had never existed
 
 ## How to install and run *Wonderful Life*
