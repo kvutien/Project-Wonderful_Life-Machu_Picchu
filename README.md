@@ -6,5 +6,5 @@
 
 The complete scenario is told in a DeepSeek chatbot session https://github.com/kvutien/Doc-Simulated_profiles_Persons_in_Need/blob/main/Profile_prompt.md
 
-## How to install *Wonderful Life*
+## How to install and run *Wonderful Life*
 To be done
