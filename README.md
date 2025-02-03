@@ -1,4 +1,4 @@
-# Project-Machu_Picchu-Wonderful_Life
+# Project Machu Picchu-*Wonderful Life*
 ## Executive Summary
 *Wonderful Life* is a sub-project of *Machu Picchu*, an open-source collaborative humanitarian project. *Wonderful Life* simulates how persons in need of similar profiles can help themselves mutually.
 
