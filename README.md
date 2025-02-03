@@ -9,6 +9,21 @@ The complete scenario is told in a DeepSeek chatbot session https://github.com/k
 - Machu Picchu's White paper is here: https://github.com/kvutien/Project-Machu_Picchu_White_Paper_2024
 - Machu Picchu is explained in this 10 minutes video podcast: https://youtu.be/z1ylfi60ES0
 
+## Quick Look
+### Overall View
+![Overall View](./images/wonderful_life_overall.png)
+
+There are 2 actors in this demo, the Person in Need and the International Helper Organization. Note that in real life and in Machu Picchu there are more actors.
+- Person in Need sumbmits its profile in free text to International Helper Organization
+- International Helper Organization does the embedding, store i-on IPFS the original profiel text and the vector
+- When the IPFS CID are received, it stores them on blockchain
+- When International Helper Organization receives a Program Sheet of a helper Program, it makes the embedding of it and matches the vector with the closest profiles of Person in Need.
+
+
+### State Machine Profile Embedding Agent
+![Embedding State Machine](./images/wonderful_life_states1.png)
+### State Machine Profile Matching with Help Program Agent
+![matching State Machine](./images/wonderful_life_states2.png)
 
 ## How to install and run *Wonderful Life*
 To be done
