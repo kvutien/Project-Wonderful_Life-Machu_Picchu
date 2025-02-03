@@ -6,5 +6,9 @@
 
 The complete scenario is told in a DeepSeek chatbot session https://github.com/kvutien/Doc-Simulated_profiles_Persons_in_Need/blob/main/Profile_prompt.md
 
+- Machu Picchu's White paper is here: https://github.com/kvutien/Project-Machu_Picchu_White_Paper_2024
+- Machu Picchu is explained in this 10 minutes video podcast: https://youtu.be/z1ylfi60ES0
+
+
 ## How to install and run *Wonderful Life*
 To be done
