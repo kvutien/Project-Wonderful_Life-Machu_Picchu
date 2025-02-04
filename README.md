@@ -6,10 +6,27 @@
 
 *Wonderful Life* is an entry to the 2025 hackathon ETH Global *Agentic Ethereum*. It is a rough sketch that shows an agent that receive profiles of **Persons in need**, make embeddings of these profiles and stores the profile in IPFS, as well as the embedding vector. Both IPFS hashes are stored in the blockchain for notarial purposes and for other Inclusive Finance purposes. Another agent, or the same agent, is used to match the purposes of a Humanitarian Helper Project Sheet with potential candidates to be helped.
 
-The complete scenario is told in a DeepSeek chatbot session https://github.com/kvutien/Doc-Simulated_profiles_Persons_in_Need/blob/main/Profile_prompt.md
+The complete scenario of this demo is told in a DeepSeek chatbot session https://github.com/kvutien/Doc-Simulated_profiles_Persons_in_Need/blob/main/Profile_prompt.md
 
+## Larger context
 - Machu Picchu's White paper is here: https://github.com/kvutien/Project-Machu_Picchu_White_Paper_2024
 - Machu Picchu is explained in this 10 minutes video podcast: https://youtu.be/z1ylfi60ES0
+
+As compared to the 10' video, *Wonderful Life* differs because it is of a hackathon illustration scale. In the video there are 4 actors:
+- The donors (you and I, governmental budget, UN budget)
+- The international helper organizations (Oxfam, UNICEF, WFP etc.)
+- The local organizations with field helpers
+- The persons in need
+
+*Wonderful Life* only has 2 actors, the international helper organization and the person in need.
+In the future there are many more functions that are foreseen. Some are:
+- Use of Abstract Accounts with multign to let the field helper work with the person in need to create and update profiles
+- Use of blockchain to let the persons in need monetize their profile
+- Use of Raspberry Pi equivalent in villages to act as IPFS nodes and SLM embedding servers
+- Use of The Graph's subgraphs to let the international organization retrieve profiles and compensate persons in need for their profiles
+- Use of Earth Observation satellite images to assess crop losses
+- more...
+Machu Picchu is collaborative and open source. Volunteer hackers are welcome.
 
 ## Quick Look at *Wonderful Life*
 ### Overall View
