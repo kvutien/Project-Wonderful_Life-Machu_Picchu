@@ -1,12 +1,14 @@
 # Project Machu Picchu-*Wonderful Life*
 ## Executive Summary
-*Wonderful Life* is a sub-project of *Machu Picchu*, an open-source collaborative humanitarian project. *Wonderful Life* simulates how persons in need of similar profiles can help themselves mutually. In this demo, we still use an International Helper Organization (World Food Program, UNICEF, BRAC etc.). The full process, involving blockchain collecting safety net common pool and distributing in case of hardship, is too complex for the scope of a hackathon.
-
-**Future Software Contributions from hackers worldwide to Machu Picchu are heartily welcome.**
 
 *Wonderful Life* is an entry to the 2025 hackathon ETH Global *Agentic Ethereum*. It is a rough sketch that shows an agent that receive profiles of **Persons in need**, make embeddings of these profiles and stores the profile in IPFS, as well as the embedding vector. Both IPFS hashes are stored in the blockchain for notarial purposes and for other Inclusive Finance purposes. Another agent, or the same agent, is used to match the purposes of a Humanitarian Helper Project Sheet with potential candidates to be helped.
 
 The complete scenario of this demo is told in a DeepSeek chatbot session https://github.com/kvutien/Doc-Simulated_profiles_Persons_in_Need/blob/main/Profile_prompt.md
+
+*Wonderful Life* is a sub-project of *Machu Picchu*, an open-source collaborative humanitarian project. *Wonderful Life* simulates how persons in need of similar profiles can help themselves mutually. In this demo, we still use an International Helper Organization (World Food Program, UNICEF, BRAC etc.). The full process, involving blockchain collecting safety net common pool and distributing in case of hardship, is too complex for the scope of a hackathon.
+
+**Future Software Contributions from hackers worldwide to Machu Picchu are heartily welcome.**
+
 
 ## Larger context
 - Machu Picchu's White paper is here: https://github.com/kvutien/Project-Machu_Picchu_White_Paper_2024
