@@ -20,11 +20,12 @@ As compared to the 10' video, *Wonderful Life* differs because it is of a hackat
 
 *Wonderful Life* only has 2 actors, the international helper organization and the person in need.
 In the future there are many more functions that are foreseen. Some are:
-- Use of Abstract Accounts with multign to let the field helper work with the person in need to create and update profiles
-- Use of blockchain to let the persons in need monetize their profile
-- Use of Raspberry Pi equivalent in villages to act as IPFS nodes and SLM embedding servers
-- Use of The Graph's subgraphs to let the international organization retrieve profiles and compensate persons in need for their profiles
-- Use of Earth Observation satellite images to assess crop losses
+- Use of **Abstract Accounts** with multign to let the field helper work with the person in need to create and update profiles
+- Use of blockchain to let the persons in need **monetize** their profile
+- Use of **Raspberry Pi** equivalent in villages to act as low-power **IPFS nodes** and SLM **embedding** servers
+- Use of The Graph's **subgraphs** to let the international organization retrieve profiles and **compensate** persons in need for their profiles
+- Use of Earth Observation satellite images to assess **crop losses**
+- Use of DeFi by international helper organizations to do Cash & Voucher help
 - more...
 Machu Picchu is collaborative and open source. Volunteer hackers are welcome.
 
