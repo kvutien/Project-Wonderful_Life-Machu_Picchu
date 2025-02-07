@@ -1,11 +1,32 @@
 'use client'
 
 import { useState } from 'react'
+import { ethers } from 'ethers'
+import { createProgramEmbedding } from '@/utils/vectorutils'
+import { storeHelperProgramWithEmbedding } from '@/utils/ipfsUtils'
 
 interface CreateHelperProgramProps {
   onClose: () => void
   onSuccess: () => void
 }
+
+// Add contract ABI and address
+const CONTRACT_ADDRESS = "0xb0016Cfe413944368a2Cb0Ac8BE4b7121fa1EB1F";
+const CONTRACT_ABI = [
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "cid",
+        "type": "string"
+      }
+    ],
+    "name": "storeCID",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+];
 
 export default function CreateHelperProgram({ onClose, onSuccess }: CreateHelperProgramProps) {
   const [formData, setFormData] = useState({
@@ -14,6 +35,7 @@ export default function CreateHelperProgram({ onClose, onSuccess }: CreateHelper
     requirements: '',
     location: '',
     duration: '',
+    additionalInfo: '',
   })
   const [isLoading, setIsLoading] = useState(false)
 
@@ -22,100 +44,193 @@ export default function CreateHelperProgram({ onClose, onSuccess }: CreateHelper
     setIsLoading(true)
 
     try {
+      // Remove empty fields before sending
+      const dataToSend = Object.fromEntries(
+        Object.entries(formData).filter(([_, value]) => value.trim() !== '')
+      )
+
+      // Create embedding for the program
+      const embedding = await createProgramEmbedding(JSON.stringify(dataToSend))
+
+      // Store program and embedding in IPFS
+      const ipfsHash = await storeHelperProgramWithEmbedding(
+        JSON.stringify({
+          ...dataToSend,
+          status: 'active',
+          createdAt: new Date().toISOString(),
+          updatedAt: new Date().toISOString()
+        }),
+        embedding
+      )
+
+      console.log('Program stored in IPFS with hash:', ipfsHash)
+
+      // Store CID in smart contract
+      try {
+        // Get provider and signer
+        const provider = new ethers.BrowserProvider(window.ethereum)
+        const signer = await provider.getSigner()
+        
+        // Create contract instance
+        const contract = new ethers.Contract(
+          CONTRACT_ADDRESS,
+          CONTRACT_ABI,
+          signer
+        )
+
+        console.log('Storing CID in contract:', ipfsHash)
+        
+        // Call storeCID function
+        const tx = await contract.storeCID(ipfsHash)
+        console.log('Transaction sent:', tx.hash)
+        
+        // Wait for transaction to be mined
+        await tx.wait()
+        console.log('CID stored successfully in contract')
+      } catch (error) {
+        console.error('Error storing CID in contract:', error)
+        throw error // Propagate error to trigger overall failure
+      }
+
+      // Send data to API
       const response = await fetch('/api/helper-programs', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...dataToSend,
+          ipfsHash,
+          status: 'active'
+        }),
       })
 
-      if (response.ok) {
-        onSuccess()
-      } else {
+      if (!response.ok) {
         throw new Error('Failed to create helper program')
       }
+
+      onSuccess()
     } catch (error) {
       console.error('Error creating helper program:', error)
+      alert('Failed to create helper program: ' + (error as Error).message)
     } finally {
       setIsLoading(false)
     }
   }
 
   return (
-    <div className="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full">
-      <div className="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
-        <div className="mt-3">
-          <h3 className="text-lg font-medium leading-6 text-gray-900 mb-4">
-            Create Helper Program
-          </h3>
-          <form onSubmit={handleSubmit} className="space-y-4">
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+      <div className="bg-[#f8fff3] rounded-xl shadow-xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
+        <div className="bg-[#e1efd8] px-6 py-4 rounded-t-xl border-b border-[#0B5394]/20 flex justify-between items-center">
+          <h2 className="text-2xl font-bold text-[#980000]">Create Helper Program</h2>
+          <button
+            onClick={onClose}
+            className="text-[#0B5394] hover:text-[#980000] transition-colors"
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+
+        <form onSubmit={handleSubmit} className="p-6 space-y-6">
+          <div className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700">Title</label>
+              <label className="block text-sm font-medium text-[#0B5394] mb-1">Program Title</label>
               <input
                 type="text"
                 required
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                className="w-full px-4 py-2 rounded-lg border border-[#0B5394]/20 focus:ring-2 focus:ring-[#980000] focus:border-transparent text-black"
                 value={formData.title}
                 onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+                placeholder="Enter program title"
               />
             </div>
+
             <div>
-              <label className="block text-sm font-medium text-gray-700">Description</label>
+              <label className="block text-sm font-medium text-[#0B5394] mb-1">Description</label>
               <textarea
-                required
-                rows={3}
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                className="w-full px-4 py-2 rounded-lg border border-[#0B5394]/20 focus:ring-2 focus:ring-[#980000] focus:border-transparent text-black"
                 value={formData.description}
                 onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+                placeholder="Describe the program's purpose and goals"
+                rows={4}
               />
             </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label className="block text-sm font-medium text-[#0B5394] mb-1">Location</label>
+                <input
+                  type="text"
+                  className="w-full px-4 py-2 rounded-lg border border-[#0B5394]/20 focus:ring-2 focus:ring-[#980000] focus:border-transparent text-black"
+                  value={formData.location}
+                  onChange={(e) => setFormData({ ...formData, location: e.target.value })}
+                  placeholder="Program location"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-[#0B5394] mb-1">Duration</label>
+                <input
+                  type="text"
+                  className="w-full px-4 py-2 rounded-lg border border-[#0B5394]/20 focus:ring-2 focus:ring-[#980000] focus:border-transparent text-black"
+                  value={formData.duration}
+                  onChange={(e) => setFormData({ ...formData, duration: e.target.value })}
+                  placeholder="e.g., 3 months"
+                />
+              </div>
+            </div>
+
             <div>
-              <label className="block text-sm font-medium text-gray-700">Requirements</label>
+              <label className="block text-sm font-medium text-[#0B5394] mb-1">Requirements</label>
               <textarea
-                rows={3}
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                className="w-full px-4 py-2 rounded-lg border border-[#0B5394]/20 focus:ring-2 focus:ring-[#980000] focus:border-transparent text-black"
                 value={formData.requirements}
                 onChange={(e) => setFormData({ ...formData, requirements: e.target.value })}
+                placeholder="List program requirements"
+                rows={4}
               />
             </div>
+
             <div>
-              <label className="block text-sm font-medium text-gray-700">Location</label>
-              <input
-                type="text"
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
-                value={formData.location}
-                onChange={(e) => setFormData({ ...formData, location: e.target.value })}
+              <label className="block text-sm font-medium text-[#0B5394] mb-1">Additional Information</label>
+              <textarea
+                className="w-full px-4 py-2 rounded-lg border border-[#0B5394]/20 focus:ring-2 focus:ring-[#980000] focus:border-transparent text-black"
+                value={formData.additionalInfo}
+                onChange={(e) => setFormData({ ...formData, additionalInfo: e.target.value })}
+                placeholder="Any other relevant information"
+                rows={3}
               />
             </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-700">Duration</label>
-              <input
-                type="text"
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
-                value={formData.duration}
-                onChange={(e) => setFormData({ ...formData, duration: e.target.value })}
-                placeholder="e.g., 3 months"
-              />
-            </div>
-            <div className="flex justify-end space-x-3 mt-4">
-              <button
-                type="button"
-                onClick={onClose}
-                className="px-4 py-2 bg-gray-100 text-gray-700 rounded-md hover:bg-gray-200"
-              >
-                Cancel
-              </button>
-              <button
-                type="submit"
-                disabled={isLoading}
-                className="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 disabled:opacity-50"
-              >
-                {isLoading ? 'Creating...' : 'Create Program'}
-              </button>
-            </div>
-          </form>
-        </div>
+          </div>
+
+          <div className="flex justify-end space-x-4 pt-4 border-t border-[#0B5394]/20">
+            <button
+              type="button"
+              onClick={onClose}
+              className="px-6 py-2 rounded-lg border border-[#980000] text-[#980000] hover:bg-[#980000] hover:text-white transition-colors"
+            >
+              Cancel
+            </button>
+            <button
+              type="submit"
+              disabled={isLoading}
+              className="px-6 py-2 bg-[#980000] text-white rounded-lg hover:bg-[#7a0000] transition-colors disabled:opacity-50 flex items-center"
+            >
+              {isLoading ? (
+                <>
+                  <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  </svg>
+                  Creating Program...
+                </>
+              ) : (
+                'Create Program'
+              )}
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   )

@@ -1,5 +1,22 @@
+"use client"
+
 import { useLogin, useLogout, usePrivy } from '@privy-io/react-auth'
 import { useRouter } from 'next/navigation'
+import { sepolia } from 'viem/chains'
+
+// Configure Privy with Sepolia chain
+export const privyConfig = {
+  defaultChain: sepolia,
+  supportedChains: [sepolia],
+  appearance: {
+    theme: 'light',
+    accentColor: '#676FFF',
+    logo: '/logo.png',
+  },
+  embeddedWallets: {
+    createOnLogin: 'users-without-wallets',
+  },
+}
 
 export function usePrivyAuth() {
   const router = useRouter()

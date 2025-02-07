@@ -12,4 +12,7 @@ export interface Profile {
       email: string;
       phone?: string;
     };
+    rawData: string;
+    ipfsHash: string;
+    createdAt: string;
   }

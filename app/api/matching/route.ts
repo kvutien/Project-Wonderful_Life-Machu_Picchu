@@ -1,23 +1,19 @@
 import { NextResponse } from 'next/server'
-import { createProgramEmbedding } from '@/utils/vectorUtils'
-import { storeHelperProgramWithEmbedding } from '@/utils/ipfsUtils'
+import { retrieveFromIPFS } from '@/utils/ipfsUtils'
 import { findMatches } from '@/utils/matchingUtils'
 
 export async function POST(request: Request) {
   try {
-    const { program, profileHashes } = await request.json()
+    const { programId, profileHashes } = await request.json()
 
-    // Create embedding for the helper program
-    const programEmbedding = await createProgramEmbedding(program)
+    // Retrieve the program and its embedding from IPFS
+    const programData = await retrieveFromIPFS(programId)
+    const programEmbedding = programData.embedding
 
-    // Store program and its embedding in IPFS
-    const programHash = await storeHelperProgramWithEmbedding(program, programEmbedding)
-
-    // Find matches
+    // Find matches using the stored embedding
     const matches = await findMatches(programEmbedding, profileHashes)
 
     return NextResponse.json({
-      programHash,
       matches: matches.slice(0, 5) // Return top 5 matches
     })
   } catch (error) {
