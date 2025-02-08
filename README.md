@@ -55,4 +55,80 @@ There are 2 actors in this demo, the Person in Need and the International Helper
 - *It's a Wonderful Life* is a 1946 Christmas fantasy drama film produced and directed by Frank Capra, starring James Stewart as George Bailey, a man who has given up his personal dreams in order to **help others in his community**. His thoughts of suicide on Christmas Eve bring about the intervention of his guardian angel, Clarence Odbody. Clarence shows George all the lives he touched and what the world would be like, if he had never existed
 
 ## How to install and run *Wonderful Life*
-To be done. Vaibhav Gadhave and Rushikesh Nimkar.
+
+You can access the live demo at: [Wonderful Life Demo](https://project-wonderful-life-mac-git-70700e-rushikeshnimkars-projects.vercel.app/dashboard)
+
+### Prerequisites
+- Node.js (v18 or higher)
+- pnpm (v8 or higher)
+- Git
+- A modern web browser
+- Code editor (VS Code recommended)
+
+
+## How to install and run *Wonderful Life*
+
+You can access the live demo at: [Wonderful Life Demo](https://project-wonderful-life-mac-git-70700e-rushikeshnimkars-projects.vercel.app/dashboard)
+
+### Prerequisites
+- Node.js (v18 or higher)
+- pnpm (v8 or higher)
+- Git
+- A modern web browser
+- Code editor (VS Code recommended)
+
+### Installation Steps
+
+1. Clone the repository
+
+```bash
+git clone https://github.com/kvutien/Project-Wonderful_Life-Machu_Picchu.git
+cd Project-Wonderful_Life-Machu_Picchu
+```
+
+2. Install dependencies
+
+```bash
+pnpm install
+```
+
+3. Set up environment variables
+
+```bash
+cp .env.sample .env
+```
+
+Edit .env file with your API keys
+
+4. Run the development server
+
+```bash
+pnpm dev
+```
+
+5. Open your browser and navigate to
+
+**http://localhost:3000**
+
+### Build for Production
+
+```bash
+pnpm build
+pnpm start
+```
+
+
+### Troubleshooting
+- If you encounter any issues with dependencies, try removing `node_modules` and `pnpm-lock.yaml`:
+
+```bash
+rm -rf node_modules
+rm pnpm-lock.yaml
+pnpm install
+```
+
+- Ensure all environment variables are properly set
+- Check Node.js version compatibility
+- Make sure ports 3000 is not in use by other applications
+
+For more information about the project, please refer to the [White Paper](https://github.com/kvutien/Project-Machu_Picchu_White_Paper_2024).
