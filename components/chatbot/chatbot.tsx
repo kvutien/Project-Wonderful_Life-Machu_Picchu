@@ -35,6 +35,33 @@ export default function ChatBot() {
     e.preventDefault()
     if (!message.trim()) return
 
+    //The deployed agent suddenly stopped working and we couldn't deploy it again as
+    //  there was a technical issue at autonome dashboard.
+    //so temporarily we are using self hosted eliza agent.
+
+
+//   const response = await fetch('https://autonome.alt.technology/humanity-aszqaz/11eac870-7416-06e2-8ced-d919b63c9c82/message', {
+    //     method: 'POST',
+    //     headers: {
+    //       'Content-Type': 'application/json',
+    //       'Authorization': 'Basic bmFkZXI6cElDVHRaYURUYw=='
+    //     },
+    //     body: JSON.stringify({
+    //       text: userMessage,
+    //     }),
+    //   })
+
+    //   const data = await response.json()
+    //   if (data?.text) {
+    //     setChatHistory(prev => [...prev, { text: data.text, isUser: false }])
+    //   }
+    // } catch (error) {
+    //   console.error('Error:', error)
+    //   setChatHistory(prev => [...prev, { 
+    //     text: "Sorry, I'm having trouble connecting right now. Please try again later.", 
+    //     isUser: false 
+    //   }])
+    // }
     const userMessage = message
     setMessage('')
     setChatHistory(prev => [...prev, { text: userMessage, isUser: true }])
