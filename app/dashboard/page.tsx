@@ -6,6 +6,9 @@ import CreateHelperProgram from '@/components/helper/CreateHelperProgram'
 import HelperProgramsList from '@/components/helper/HelperProgramsList'
 import { processAndStoreProfiles } from '@/utils/profileProcessor'
 import { initializeDB, storeIPFSCids, getStoredCids } from '@/utils/indexedDB'
+import LandingPage from './landingpage'
+import Image from 'next/image'
+import { motion } from 'framer-motion'
 
 function DashboardOverview() {
   const [showCreateProgram, setShowCreateProgram] = useState(false)
@@ -353,43 +356,63 @@ function DashboardOverview() {
 
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-12 ">
       {/* Hero Section */}
-      <div className="bg-[#e1efd8] rounded-xl p-8 shadow-lg">
-        <h2 className="text-3xl font-bold text-[#980000] mb-4">Welcome to Machu Picchu</h2>
-        <p className="text-[#0B5394] text-lg mb-6">
-          An innovative humanitarian platform connecting those in need with helper organizations through blockchain technology.
-        </p>
-        <div className="flex space-x-4">
-          <button
-            onClick={() => setShowCreateProgram(true)}
-            className="px-6 py-3 bg-[#980000] text-white rounded-lg hover:bg-[#7a0000] transition-colors"
-          >
-            Start a Helper Program
-          </button>
-          
-          <button
-            onClick={handleProfileUpload}
-            disabled={isUploading}
-            className="px-6 py-3 bg-[#0B5394] text-white rounded-lg hover:bg-[#083e6d] transition-colors disabled:opacity-50 flex items-center"
-          >
-            {isUploading ? (
-              <>
-                <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                </svg>
-                Uploading Profile...
-              </>
-            ) : (
-              'Upload Test Profile'
-            )}
-          </button>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="relative rounded-xl p-10 shadow-lg text-white overflow-hidden min-h-[400px] flex items-center"
+      >
+        {/* Background Image with Gradient */}
+        <div className="absolute inset-0 ">
+          <Image
+            src="/mp1.jpg"
+            alt="Machu Picchu Background"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-green-900/90 via-green-800/20 to-green-900/0" />
         </div>
-      </div>
+
+        {/* Content */}
+        <div className="relative z-10">
+          <h2 className="text-5xl font-bold text-yellow-400 mb-2">Machu Picchu</h2>
+          <h3 className="text-3xl font-semibold text-white/90 mb-6">Wonderful Life</h3>
+          <p className="text-lg text-white/90 mb-8 max-w-2xl">
+            An innovative humanitarian platform connecting those in need with helper organizations through AI and blockchain technology.
+          </p>
+          <div className="flex flex-wrap gap-4">
+            <button
+              onClick={() => setShowCreateProgram(true)}
+              className="px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors transform hover:scale-105"
+            >
+              Start a Helper Program
+            </button>
+            
+            <button
+              onClick={handleProfileUpload}
+              disabled={isUploading}
+              className="px-6 py-3 bg-yellow-400 text-green-900 rounded-lg hover:bg-yellow-500 transition-colors disabled:opacity-50 flex items-center gap-2 transform hover:scale-105"
+            >
+              {isUploading ? (
+                <>
+                  <svg className="animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  </svg>
+                  Uploading Profile...
+                </>
+              ) : (
+                'Upload Test Profile'
+              )}
+            </button>
+          </div>
+        </div>
+      </motion.div>
 
       {/* Quick Stats */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 " >
         <StatCard 
           icon="👥"
           title="Active Programs" 
@@ -461,12 +484,16 @@ function StatCard({ icon, title, value, description }: {
   description: string;
 }) {
   return (
-    <div className="bg-[#f8fff3] rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow">
-      <div className="text-3xl mb-4">{icon}</div>
-      <h3 className="text-xl font-semibold text-[#980000] mb-2">{title}</h3>
-      <p className="text-3xl font-bold text-[#0B5394] mb-2">{value}</p>
-      <p className="text-sm text-gray-600">{description}</p>
-    </div>
+    <motion.div
+      whileHover={{ y: -5 }}
+      transition={{ duration: 0.2 }}
+      className="bg-white/80 backdrop-blur-sm rounded-xl p-8 shadow-sm hover:shadow-lg transition-all border border-green-100 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-green-300 via-green-200 to-yellow-200 shadow-lg"
+    >
+      <div className="text-4xl mb-4">{icon}</div>
+      <h3 className="text-xl font-semibold text-green-700 mb-2">{title}</h3>
+      <p className="text-3xl font-bold text-green-600 mb-2">{value}</p>
+      <p className="text-sm text-stone-600">{description}</p>
+    </motion.div>
   )
 }
 
@@ -478,85 +505,151 @@ function FeatureCard({ title, description, icon, linkText, onClick }: {
   onClick: () => void;
 }) {
   return (
-    <div className="bg-[#f8fff3] rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow">
-      <div className="text-4xl mb-4">{icon}</div>
-      <h3 className="text-xl font-semibold text-[#980000] mb-2">{title}</h3>
-      <p className="text-[#0B5394] mb-4">{description}</p>
+    <motion.div
+      whileHover={{ y: -5 }}
+      transition={{ duration: 0.2 }}
+      className="bg-gradient-to-b from-white/90 to-green-200/50 backdrop-blur-sm rounded-xl p-8 shadow-sm hover:shadow-lg transition-all group border border-green-100"
+    >
+      <div className="text-4xl mb-4 transform group-hover:scale-110 transition-transform">{icon}</div>
+      <h3 className="text-xl font-semibold text-green-700 mb-2">{title}</h3>
+      <p className="text-stone-600 mb-4">{description}</p>
       <button
         onClick={onClick}
-        className="text-[#980000] font-medium hover:underline"
+        className="text-green-600 font-medium hover:text-green-700 flex items-center gap-2 group"
       >
-        {linkText} →
+        {linkText}
+        <span className="transform group-hover:translate-x-1 transition-transform">→</span>
       </button>
-    </div>
+    </motion.div>
   )
 }
 
 export default function Dashboard() {
   const [activeTab, setActiveTab] = useState('overview')
+  const [showLandingPage, setShowLandingPage] = useState(false)
   const { ready, authenticated, user, login, logout } = usePrivyAuth()
+
+  // Reset to dashboard view when user logs in
+  useEffect(() => {
+    if (authenticated) {
+      setShowLandingPage(false)
+    }
+  }, [authenticated])
 
   const disableAuth = !ready
 
+  const getDisplayAddress = () => {
+    if (!user?.linkedAccounts) return null;
+    const walletAccount = user.linkedAccounts.find(account => 
+      account.type === 'wallet'
+    );
+    if (!walletAccount?.address) return null;
+    
+    const address = walletAccount.address;
+    return `${address.substring(0, 6)}...${address.substring(address.length - 4)}`;
+  };
+
   if (!ready) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#f8fff3]">
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-green-50 to-stone-50">
         <div className="text-center">
-          <h2 className="text-2xl font-semibold text-[#980000]">Loading...</h2>
+          <motion.h2 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="text-2xl font-semibold text-green-700"
+          >
+            Loading...
+          </motion.h2>
         </div>
       </div>
     )
   }
 
   return (
-    <div className="min-h-screen bg-[#f8fff3]">
+    <div className="min-h-screen bg-gradient-to-b from-green-50 via-stone-50 to-green-50">
       {/* Navbar */}
-      <nav className="bg-[#e1efd8] shadow-md">
+      <nav className="bg-gradient-to-r from-green-900 to-green-800 text-white shadow-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16">
             <div className="flex items-center space-x-3">
-              <img 
-                src="/logo.png" 
-                alt="Machu Picchu Logo" 
-                className="h-10 w-10 object-contain"
-              />
-
-              <h1 className="text-xl font-bold text-[#980000]">Machu Picchu</h1>
+              {/* Logo and Title - Clickable */}
+              <button 
+                onClick={() => setShowLandingPage(true)}
+                className="flex items-center space-x-3 hover:opacity-90 transition-opacity"
+              >
+                <div className="w-10 h-10 relative">
+                  <Image
+                    src="/machu.webp"
+                    alt="Machu Picchu Logo"
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+                <h1 className="text-xl font-bold text-yellow-400">Machu Picchu</h1>
+              </button>
             </div>
 
             <div className="flex items-center space-x-8">
               {/* Navigation Links */}
               <div className="hidden md:flex space-x-6">
-                {['Overview', 'Programs', 'Analytics', 'Support'].map((item) => (
+                {authenticated && (
                   <button
-                    key={item}
-                    className="text-[#0B5394] hover:text-[#980000] px-3 py-2 rounded-md text-sm font-medium"
+                    onClick={() => setShowLandingPage(false)}
+                    className={`text-white/80 hover:text-yellow-400 px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                      !showLandingPage ? 'border-b-2 border-yellow-400' : 'border-b-2 border-transparent'
+                    }`}
                   >
-                    {item}
+                    Dashboard
                   </button>
-                ))}
+                )}
               </div>
               
               {/* Auth Buttons */}
               {authenticated ? (
                 <div className="flex items-center space-x-4">
-                  <span className="text-sm text-[#0B5394]">
-                    {user?.id}
-                  </span>
+                  <div className="flex items-center bg-green-800/50 rounded-lg px-4 py-2 border border-green-700/30">
+                    <svg 
+                      className="w-4 h-4 text-green-400 mr-2" 
+                      fill="none" 
+                      stroke="currentColor" 
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span className="text-sm text-white/90 font-medium">
+                      {getDisplayAddress() || 'No wallet connected'}
+                    </span>
+                  </div>
                   <button
                     onClick={logout}
-                    className="px-4 py-2 bg-[#980000] text-white rounded-lg hover:bg-[#7a0000] transition-colors"
+                    className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-all transform hover:scale-105 flex items-center space-x-2"
                   >
-                    Logout
+                    <span>Logout</span>
+                    <svg 
+                      className="w-4 h-4" 
+                      fill="none" 
+                      stroke="currentColor" 
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                    </svg>
                   </button>
                 </div>
               ) : (
                 <button
-                  disabled={disableAuth}
+                  disabled={!ready}
                   onClick={() => login()}
-                  className="px-4 py-2 bg-[#980000] text-white rounded-lg hover:bg-[#7a0000] transition-colors disabled:opacity-50"
+                  className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-all transform hover:scale-105 disabled:opacity-50 flex items-center space-x-2"
                 >
-                  Login
+                  <span>Login</span>
+                  <svg 
+                    className="w-4 h-4" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                  </svg>
                 </button>
               )}
             </div>
@@ -565,39 +658,42 @@ export default function Dashboard() {
       </nav>
 
       {/* Main Content */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {authenticated ? (
-          <>
-            <div className="mb-8">
-              <div className="flex space-x-6 border-b border-[#0B5394]/20">
-                {['overview', 'helper-programs'].map((tab) => (
-                  <button
-                    key={tab}
-                    onClick={() => setActiveTab(tab)}
-                    className={`${
-                      activeTab === tab
-                        ? 'border-[#980000] text-[#980000]'
-                        : 'border-transparent text-[#0B5394] hover:text-[#980000] hover:border-[#0B5394]'
-                    } pb-4 px-1 border-b-2 font-medium text-sm transition-colors`}
-                  >
-                    {tab.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
-                  </button>
-                ))}
+      {authenticated ? (
+        <main className={``}>
+          {showLandingPage ? (
+                <LandingPage />
+          ) : (
+            <>
+<div className='mx-auto px-4 sm:px-6 lg:px-48 py-12 justify-center items-center bg-gradient-to-r from-green-50 via-yellow-100 to-green-50'>
+              <div className="mb-12 bg-white/50 p-6 rounded-xl backdrop-blur-sm">
+                <div className="flex space-x-6 border-b border-green-900/10 ">
+                  {['overview', 'helper-programs'].map((tab) => (
+                    <button
+                      key={tab}
+                      onClick={() => setActiveTab(tab)}
+                      className={`${
+                        activeTab === tab
+                          ? 'border-green-600 text-green-600'
+                          : 'border-transparent text-stone-600 hover:text-green-600 hover:border-green-600'
+                      } pb-4 px-1 border-b-2 font-medium text-sm transition-colors`}
+                    >
+                      {tab.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
+                    </button>
+                  ))}
+                </div>
               </div>
-            </div>
 
-            {activeTab === 'overview' && <DashboardOverview />}
-            {activeTab === 'helper-programs' && <HelperProgramsList />}
-            
-          </>
-        ) : (
-          <div className="text-center py-20">
-            <h2 className="text-2xl font-semibold text-[#980000]">
-              Please login to access the platform
-            </h2>
-          </div>
-        )}
-      </main>
+              {activeTab === 'overview' && <DashboardOverview />}
+              {activeTab === 'helper-programs' && <HelperProgramsList />}
+              </div>
+            </>
+          )}
+        </main>
+      ) : (
+        <main className="w-screen overflow-hidden">
+          <LandingPage />
+        </main>
+      )}
     </div>
   )
 }

@@ -232,8 +232,8 @@ export default function HelperProgramsList() {
   if (isLoading) {
     return (
       <div className="p-6 text-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#980000] mx-auto"></div>
-        <p className="text-[#0B5394] mt-4">Loading programs...</p>
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-600 mx-auto"></div>
+        <p className="text-green-800 mt-4">Loading programs...</p>
       </div>
     )
   }
@@ -241,27 +241,27 @@ export default function HelperProgramsList() {
   return (
     <div className="p-6">
       <div className="mb-8">
-        <h2 className="text-2xl font-bold text-[#980000]">Helper Programs</h2>
-        <p className="text-[#0B5394] mt-2">Current humanitarian aid programs</p>
+        <h2 className="text-2xl font-bold text-green-800">Helper Programs</h2>
+        <p className="text-green-700 mt-2">Current humanitarian aid programs</p>
       </div>
 
       <div className="space-y-6">
         {programs.length === 0 ? (
-          <div className="text-center py-12 bg-[#f8fff3] rounded-lg">
-            <p className="text-[#0B5394]">No programs available yet.</p>
+          <div className="text-center py-12 bg-white/80 backdrop-blur-sm rounded-lg border border-green-100">
+            <p className="text-green-700">No programs available yet.</p>
           </div>
         ) : (
           programs.map((program) => (
-            <div key={program.id} className="bg-[#f8fff3] shadow-lg rounded-xl p-6">
+            <div key={program.id} className="bg-white/80 backdrop-blur-sm shadow-lg rounded-xl p-6 border border-green-100 hover:shadow-xl transition-all">
               {/* Program Details */}
               <div className="flex justify-between items-start">
                 <div>
-                  <h3 className="text-xl font-semibold text-[#980000]">
+                  <h3 className="text-xl font-semibold text-green-800">
                     {program.title || 'Untitled Program'}
                   </h3>
                   <div className="flex flex-wrap items-center mt-2 gap-4">
                     {program.location && (
-                      <span className="text-sm text-[#0B5394] flex items-center">
+                      <span className="text-sm text-green-700 flex items-center">
                         <img
                           src={`https://flagcdn.com/24x18/${getCountryCode(program.location)}.png`}
                           alt={program.location}
@@ -271,7 +271,7 @@ export default function HelperProgramsList() {
                       </span>
                     )}
                     {program.duration && (
-                      <span className="text-sm text-[#0B5394] flex items-center">
+                      <span className="text-sm text-green-700 flex items-center">
                         <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
@@ -283,7 +283,7 @@ export default function HelperProgramsList() {
                 {program.status && (
                   <span className={`
                     px-3 py-1 rounded-full text-sm font-medium
-                    ${program.status.toLowerCase() === 'active' ? 'bg-[#e1efd8] text-[#0B5394]' : ''}
+                    ${program.status.toLowerCase() === 'active' ? 'bg-green-100 text-green-800' : ''}
                     ${program.status.toLowerCase() === 'completed' ? 'bg-gray-100 text-gray-800' : ''}
                     ${program.status.toLowerCase() === 'pending' ? 'bg-yellow-100 text-yellow-800' : ''}
                   `}>
@@ -295,14 +295,14 @@ export default function HelperProgramsList() {
               {/* Program Description and Requirements */}
               {program.description && (
                 <div className="mt-4">
-                  <p className="text-gray-600">{program.description}</p>
+                  <p className="text-stone-600">{program.description}</p>
                 </div>
               )}
 
               {program.requirements && (
                 <div className="mt-4">
-                  <h4 className="text-sm font-medium text-[#0B5394]">Requirements</h4>
-                  <p className="mt-1 text-gray-600">{program.requirements}</p>
+                  <h4 className="text-sm font-medium text-green-700">Requirements</h4>
+                  <p className="mt-1 text-stone-600">{program.requirements}</p>
                 </div>
               )}
 
@@ -311,7 +311,7 @@ export default function HelperProgramsList() {
                 <button
                   onClick={() => findMatches(program)}
                   disabled={loadingMatches[program.id]}
-                  className="px-4 py-2 bg-[#980000] text-white rounded-lg hover:bg-[#7a0000] transition-colors disabled:opacity-50 flex items-center"
+                  className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-all disabled:opacity-50 flex items-center group transform hover:scale-105"
                 >
                   {loadingMatches[program.id] ? (
                     <>
@@ -329,20 +329,20 @@ export default function HelperProgramsList() {
 
               {/* Matching Results */}
               {matchingResults[program.id] && matchingResults[program.id].length > 0 && (
-                <div className="mt-6 border-t border-[#0B5394]/20 pt-6">
-                  <h4 className="text-lg font-medium text-[#0B5394] mb-4">Matching Profiles Found</h4>
+                <div className="mt-6 border-t border-green-100 pt-6">
+                  <h4 className="text-lg font-medium text-green-800 mb-4">Matching Profiles Found</h4>
                   <div className="grid gap-6">
                     {matchingResults[program.id].map((match, index) => (
-                      <div key={index} className="bg-white rounded-lg p-6 shadow-md">
+                      <div key={index} className="bg-white/90 rounded-lg p-6 shadow-md border border-green-50 hover:shadow-lg transition-all">
                         {/* Header with name and match percentage */}
                         <div className="flex justify-between items-center mb-4">
                           <div>
-                            <h3 className="text-xl font-semibold text-[#980000]">
+                            <h3 className="text-xl font-semibold text-green-800">
                               {match.profile.name}
                             </h3>
-                            <p className="text-sm text-[#0B5394]">{match.profile.location}</p>
+                            <p className="text-sm text-green-700">{match.profile.location}</p>
                           </div>
-                          <span className="px-4 py-2 bg-[#e1efd8] text-[#0B5394] rounded-full text-sm font-medium">
+                          <span className="px-4 py-2 bg-green-100 text-green-800 rounded-full text-sm font-medium">
                             {Math.round(match.similarity * 100)}% Match
                           </span>
                         </div>
@@ -350,17 +350,17 @@ export default function HelperProgramsList() {
                         {/* Professional Summary */}
                         {match.enhancement?.summary && (
                           <div className="mb-4">
-                            <p className="text-gray-700">{match.enhancement.summary}</p>
+                            <p className="text-stone-600">{match.enhancement.summary}</p>
                           </div>
                         )}
 
                         {/* Key Strengths */}
                         {match.enhancement?.keyStrengths && (
                           <div className="mb-4">
-                            <h4 className="text-sm font-medium text-[#0B5394] mb-2">Key Strengths</h4>
+                            <h4 className="text-sm font-medium text-green-700 mb-2">Key Strengths</h4>
                             <div className="flex flex-wrap gap-2">
-                              {match.enhancement.keyStrengths.map((strength: string | number | bigint | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<AwaitedReactNode> | null | undefined, i: Key | null | undefined) => (
-                                <span key={i} className="px-3 py-1 bg-[#f8fff3] text-[#0B5394] text-sm rounded-full">
+                              {match.enhancement.keyStrengths.map((strength, i) => (
+                                <span key={i} className="px-3 py-1 bg-green-50 text-green-700 text-sm rounded-full">
                                   {strength}
                                 </span>
                               ))}
@@ -370,10 +370,10 @@ export default function HelperProgramsList() {
 
                         {/* Skills */}
                         <div className="mb-4">
-                          <h4 className="text-sm font-medium text-[#0B5394] mb-2">Skills</h4>
+                          <h4 className="text-sm font-medium text-green-700 mb-2">Skills</h4>
                           <div className="flex flex-wrap gap-2">
                             {match.profile.skills.map((skill, i) => (
-                              <span key={i} className="px-2 py-1 bg-[#f8fff3] text-[#0B5394] text-sm rounded">
+                              <span key={i} className="px-2 py-1 bg-green-50 text-green-700 text-sm rounded">
                                 {skill}
                               </span>
                             ))}
@@ -383,15 +383,15 @@ export default function HelperProgramsList() {
                         {/* Relevant Experience */}
                         {match.enhancement?.relevantExperience && (
                           <div className="mb-4">
-                            <h4 className="text-sm font-medium text-[#0B5394] mb-2">Relevant Experience</h4>
-                            <p className="text-gray-700">{match.enhancement.relevantExperience}</p>
+                            <h4 className="text-sm font-medium text-green-700 mb-2">Relevant Experience</h4>
+                            <p className="text-stone-600">{match.enhancement.relevantExperience}</p>
                           </div>
                         )}
 
                         {/* Languages */}
                         <div>
-                          <h4 className="text-sm font-medium text-[#0B5394] mb-2">Languages</h4>
-                          <p className="text-gray-700">{match.profile.languages.join(', ')}</p>
+                          <h4 className="text-sm font-medium text-green-700 mb-2">Languages</h4>
+                          <p className="text-stone-600">{match.profile.languages.join(', ')}</p>
                         </div>
                       </div>
                     ))}

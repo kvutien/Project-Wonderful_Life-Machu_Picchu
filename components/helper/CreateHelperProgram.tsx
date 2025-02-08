@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { ethers } from 'ethers'
 import { createProgramEmbedding } from '@/utils/vectorutils'
 import { storeHelperProgramWithEmbedding } from '@/utils/ipfsUtils'
+import { motion } from 'framer-motion'
 
 interface CreateHelperProgramProps {
   onClose: () => void
@@ -119,13 +120,18 @@ export default function CreateHelperProgram({ onClose, onSuccess }: CreateHelper
   }
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-      <div className="bg-[#f8fff3] rounded-xl shadow-xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
-        <div className="bg-[#e1efd8] px-6 py-4 rounded-t-xl border-b border-[#0B5394]/20 flex justify-between items-center">
-          <h2 className="text-2xl font-bold text-[#980000]">Create Helper Program</h2>
+    <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4 text-green-900">
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        exit={{ opacity: 0, scale: 0.95 }}
+        className="bg-gradient-to-b from-green-50 to-stone-50 rounded-xl shadow-xl w-full max-w-2xl max-h-[90vh] overflow-y-auto"
+      >
+        <div className="bg-gradient-to-r from-green-900 to-green-800 px-6 py-4 rounded-t-xl border-b border-green-700 flex justify-between items-center">
+          <h2 className="text-2xl font-bold text-yellow-400">Create Helper Program</h2>
           <button
             onClick={onClose}
-            className="text-[#0B5394] hover:text-[#980000] transition-colors"
+            className="text-white/80 hover:text-yellow-400 transition-colors"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
@@ -136,11 +142,11 @@ export default function CreateHelperProgram({ onClose, onSuccess }: CreateHelper
         <form onSubmit={handleSubmit} className="p-6 space-y-6">
           <div className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-[#0B5394] mb-1">Program Title</label>
+              <label className="block text-sm font-medium text-green-800 mb-1">Program Title</label>
               <input
                 type="text"
                 required
-                className="w-full px-4 py-2 rounded-lg border border-[#0B5394]/20 focus:ring-2 focus:ring-[#980000] focus:border-transparent text-black"
+                className="w-full px-4 py-2 rounded-lg border border-green-200 focus:ring-2 focus:ring-green-600 focus:border-transparent bg-white/80 backdrop-blur-sm"
                 value={formData.title}
                 onChange={(e) => setFormData({ ...formData, title: e.target.value })}
                 placeholder="Enter program title"
@@ -148,9 +154,9 @@ export default function CreateHelperProgram({ onClose, onSuccess }: CreateHelper
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-[#0B5394] mb-1">Description</label>
+              <label className="block text-sm font-medium text-green-800 mb-1">Description</label>
               <textarea
-                className="w-full px-4 py-2 rounded-lg border border-[#0B5394]/20 focus:ring-2 focus:ring-[#980000] focus:border-transparent text-black"
+                className="w-full px-4 py-2 rounded-lg border border-green-200 focus:ring-2 focus:ring-green-600 focus:border-transparent bg-white/80 backdrop-blur-sm"
                 value={formData.description}
                 onChange={(e) => setFormData({ ...formData, description: e.target.value })}
                 placeholder="Describe the program's purpose and goals"
@@ -160,20 +166,20 @@ export default function CreateHelperProgram({ onClose, onSuccess }: CreateHelper
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium text-[#0B5394] mb-1">Location</label>
+                <label className="block text-sm font-medium text-green-800 mb-1">Location</label>
                 <input
                   type="text"
-                  className="w-full px-4 py-2 rounded-lg border border-[#0B5394]/20 focus:ring-2 focus:ring-[#980000] focus:border-transparent text-black"
+                  className="w-full px-4 py-2 rounded-lg border border-green-200 focus:ring-2 focus:ring-green-600 focus:border-transparent bg-white/80 backdrop-blur-sm"
                   value={formData.location}
                   onChange={(e) => setFormData({ ...formData, location: e.target.value })}
                   placeholder="Program location"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-[#0B5394] mb-1">Duration</label>
+                <label className="block text-sm font-medium text-green-800 mb-1">Duration</label>
                 <input
                   type="text"
-                  className="w-full px-4 py-2 rounded-lg border border-[#0B5394]/20 focus:ring-2 focus:ring-[#980000] focus:border-transparent text-black"
+                  className="w-full px-4 py-2 rounded-lg border border-green-200 focus:ring-2 focus:ring-green-600 focus:border-transparent bg-white/80 backdrop-blur-sm"
                   value={formData.duration}
                   onChange={(e) => setFormData({ ...formData, duration: e.target.value })}
                   placeholder="e.g., 3 months"
@@ -182,9 +188,9 @@ export default function CreateHelperProgram({ onClose, onSuccess }: CreateHelper
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-[#0B5394] mb-1">Requirements</label>
+              <label className="block text-sm font-medium text-green-800 mb-1">Requirements</label>
               <textarea
-                className="w-full px-4 py-2 rounded-lg border border-[#0B5394]/20 focus:ring-2 focus:ring-[#980000] focus:border-transparent text-black"
+                className="w-full px-4 py-2 rounded-lg border border-green-200 focus:ring-2 focus:ring-green-600 focus:border-transparent bg-white/80 backdrop-blur-sm"
                 value={formData.requirements}
                 onChange={(e) => setFormData({ ...formData, requirements: e.target.value })}
                 placeholder="List program requirements"
@@ -193,9 +199,9 @@ export default function CreateHelperProgram({ onClose, onSuccess }: CreateHelper
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-[#0B5394] mb-1">Additional Information</label>
+              <label className="block text-sm font-medium text-green-800 mb-1">Additional Information</label>
               <textarea
-                className="w-full px-4 py-2 rounded-lg border border-[#0B5394]/20 focus:ring-2 focus:ring-[#980000] focus:border-transparent text-black"
+                className="w-full px-4 py-2 rounded-lg border border-green-200 focus:ring-2 focus:ring-green-600 focus:border-transparent bg-white/80 backdrop-blur-sm"
                 value={formData.additionalInfo}
                 onChange={(e) => setFormData({ ...formData, additionalInfo: e.target.value })}
                 placeholder="Any other relevant information"
@@ -204,18 +210,18 @@ export default function CreateHelperProgram({ onClose, onSuccess }: CreateHelper
             </div>
           </div>
 
-          <div className="flex justify-end space-x-4 pt-4 border-t border-[#0B5394]/20">
+          <div className="flex justify-end space-x-4 pt-4 border-t border-green-200">
             <button
               type="button"
               onClick={onClose}
-              className="px-6 py-2 rounded-lg border border-[#980000] text-[#980000] hover:bg-[#980000] hover:text-white transition-colors"
+              className="px-6 py-2 rounded-lg border border-green-600 text-green-600 hover:bg-green-600 hover:text-white transition-colors"
             >
               Cancel
             </button>
             <button
               type="submit"
               disabled={isLoading}
-              className="px-6 py-2 bg-[#980000] text-white rounded-lg hover:bg-[#7a0000] transition-colors disabled:opacity-50 flex items-center"
+              className="px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors disabled:opacity-50 flex items-center group transform hover:scale-105"
             >
               {isLoading ? (
                 <>
@@ -231,7 +237,7 @@ export default function CreateHelperProgram({ onClose, onSuccess }: CreateHelper
             </button>
           </div>
         </form>
-      </div>
+      </motion.div>
     </div>
   )
 }

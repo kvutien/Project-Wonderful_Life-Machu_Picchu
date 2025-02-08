@@ -8,9 +8,11 @@ export default function Providers({ children }: { children: React.ReactNode }) {
       appId={process.env.NEXT_PUBLIC_PRIVY_APP_ID!}
       config={{
         appearance: {
-          theme: 'light',
-          accentColor: '#676FFF',
-          logo: '/logo.png', // Add your logo URL here
+        
+          logo: '/machu.webp', 
+          landingHeader: 'Machu Picchu: Wonderful Life  ', 
+          loginMessage: 'Connect your wallet to continue to Machu Picchu: Wonderful Life',
+
         },
         embeddedWallets: {
           createOnLogin: 'users-without-wallets',
