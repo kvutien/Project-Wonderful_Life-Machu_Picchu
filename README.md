@@ -65,8 +65,6 @@ You can access the live demo at: [Wonderful Life Demo](https://project-wonderful
 - A modern web browser
 - Code editor (VS Code recommended)
 
-### Environment Variables
-Create a `.env` file in the root directory with the following variables:
 
 ## How to install and run *Wonderful Life*
 
@@ -79,16 +77,13 @@ You can access the live demo at: [Wonderful Life Demo](https://project-wonderful
 - A modern web browser
 - Code editor (VS Code recommended)
 
-### Environment Variables
-Create a `.env` file in the root directory with the following variables:
-
 ### Installation Steps
 
 1. Clone the repository
 
 ```bash
 git clone https://github.com/kvutien/Project-Wonderful_Life-Machu_Picchu.git
-cd Project-Wonderful_Life-Machu_Picchu```
+cd Project-Wonderful_Life-Machu_Picchu
 ```
 
 2. Install dependencies
