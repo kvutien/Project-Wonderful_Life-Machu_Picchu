@@ -8,7 +8,7 @@ import CreateHelperProgram from '@/components/helper/CreateHelperProgram'
 import HelperProgramsList from '@/components/helper/HelperProgramsList'
 import { processAndStoreProfiles } from '@/utils/profileProcessor'
 import { initializeDB, storeIPFSCids } from '@/utils/indexedDB'
-import LandingPage from './landingpage'
+import LandingPage from '../../components/layout/landingpage'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 
@@ -355,18 +355,16 @@ function DashboardOverview() {
     }
   }
 
-
-
   return (
-    <div className="space-y-12 ">
+    <div className="space-y-8">
       {/* Hero Section */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="relative rounded-xl p-10 shadow-lg text-white overflow-hidden min-h-[400px] flex items-center"
+        className="relative h-[600px] w-full flex items-center"
       >
-        {/* Background Image with Gradient */}
-        <div className="absolute inset-0 ">
+        {/* Background Image */}
+        <div className="absolute inset-0">
           <Image
             src="/mp1.jpg"
             alt="Machu Picchu Background"
@@ -374,155 +372,119 @@ function DashboardOverview() {
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-green-900/90 via-green-800/20 to-green-900/0" />
+          <div className="absolute inset-0 bg-black/60" />
         </div>
 
         {/* Content */}
-        <div className="relative z-10">
-          <h2 className="text-5xl font-bold text-yellow-400 mb-2">Machu Picchu</h2>
-          <h3 className="text-3xl font-semibold text-white/90 mb-6">Wonderful Life</h3>
-          <p className="text-lg text-white/90 mb-8 max-w-2xl">
-            An innovative humanitarian platform connecting those in need with helper organizations through AI and blockchain technology.
+        <div className="relative z-10 container mx-auto px-6">
+          <h2 className="text-6xl font-bold text-white mb-4">Machu Picchu Initiative</h2>
+          <p className="text-xl text-white/90 mb-8 max-w-3xl">
+            Inspired by the Incan citadel's spirit of community and innovation, we connect those in need 
+            with helper organizations through AI and blockchain technology. Like the perfectly fitted stones 
+            of Machu Picchu, we build stronger communities through collaboration.
           </p>
-          <div className="flex flex-wrap gap-4">
+          <div className="flex gap-4">
             <button
               onClick={() => setShowCreateProgram(true)}
-              className="px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors transform hover:scale-105"
+              className="px-8 py-3 bg-white text-green-900 rounded-md hover:bg-green-50"
             >
               Start a Helper Program
             </button>
-            
             <button
               onClick={handleProfileUpload}
               disabled={isUploading}
-              className="px-6 py-3 bg-yellow-400 text-green-900 rounded-lg hover:bg-yellow-500 transition-colors disabled:opacity-50 flex items-center gap-2 transform hover:scale-105"
+              className="px-8 py-3 bg-green-600 text-white rounded-md hover:bg-green-700 disabled:opacity-50"
             >
-              {isUploading ? (
-                <>
-                  <svg className="animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                  </svg>
-                  Uploading Profile...
-                </>
-              ) : (
-                'Upload Test Profile'
-              )}
+              {isUploading ? 'Uploading...' : 'Upload Test Profile'}
             </button>
           </div>
         </div>
       </motion.div>
 
-      {/* Quick Stats */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 " >
-        <StatCard 
-          icon="👥"
-          title="Active Programs" 
-          value="24" 
-          description="Currently running humanitarian programs"
-        />
-        <StatCard 
-          icon="🌍"
-          title="People Reached" 
-          value="1,234" 
-          description="Lives impacted through our platform"
-        />
-        <StatCard 
-          icon="🤝"
-          title="Success Rate" 
-          value="97%" 
-          description="Program completion rate"
-        />
+      {/* Stats Section */}
+      <div className="container mx-auto px-6">
+        <div className="grid grid-cols-4 gap-6">
+          <StatCard 
+            title="Active Programs" 
+            value="24" 
+            description="Running programs"
+          />
+          <StatCard 
+            title="People Reached" 
+            value="1,234" 
+            description="Lives impacted"
+          />
+          <StatCard 
+            title="Success Rate" 
+            value="97%" 
+            description="Completion rate"
+          />
+          <StatCard 
+            title="Communities" 
+            value="15" 
+            description="Connected regions"
+          />
+        </div>
       </div>
 
-      {/* Features Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <FeatureCard
-          title="Profile Matching"
-          description="AI-powered matching of needs with available programs"
-          icon="🎯"
-          linkText="Learn More"
-          onClick={() => {}}
-        />
-        <FeatureCard
-          title="Blockchain Security"
-          description="Transparent and secure data storage on IPFS"
-          icon="🔒"
-          linkText="View Details"
-          onClick={() => {}}
-        />
-        <FeatureCard
-          title="Impact Tracking"
-          description="Real-time monitoring of program effectiveness"
-          icon="📊"
-          linkText="See Statistics"
-          onClick={() => {}}
-        />
-        <FeatureCard
-          title="Community Support"
-          description="Connect with other humanitarian organizations"
-          icon="💪"
-          linkText="Join Network"
-          onClick={() => {}}
-        />
+      {/* Features Section */}
+      <div className="w-full bg-gray-50 py-16">
+        <div className="container mx-auto px-6">
+          <h2 className="text-3xl font-bold text-gray-900 mb-8">Our Approach</h2>
+          <div className="grid grid-cols-2 gap-8">
+            <FeatureCard
+              title="Profile Matching"
+              description="AI-powered matching of needs with available programs, ensuring efficient and effective aid distribution."
+            />
+            <FeatureCard
+              title="Blockchain Security"
+              description="Transparent and secure data storage on IPFS, protecting sensitive information while maintaining accessibility."
+            />
+            <FeatureCard
+              title="Community Building"
+              description="Like the ancient Incan civilization, we believe in the power of community and mutual support."
+            />
+            <FeatureCard
+              title="Sustainable Impact"
+              description="Creating lasting change through technology-enabled humanitarian assistance and community empowerment."
+            />
+          </div>
+        </div>
       </div>
 
       {showCreateProgram && (
         <CreateHelperProgram
           onClose={() => setShowCreateProgram(false)}
-          onSuccess={() => {
-            setShowCreateProgram(false)
-          }}
+          onSuccess={() => setShowCreateProgram(false)}
         />
       )}
     </div>
   )
 }
 
-function StatCard({ icon, title, value, description }: { 
-  icon: string;
+function StatCard({ title, value, description }: { 
   title: string; 
   value: string; 
   description: string;
 }) {
   return (
-    <motion.div
-      whileHover={{ y: -5 }}
-      transition={{ duration: 0.2 }}
-      className="bg-white/80 backdrop-blur-sm rounded-xl p-8 shadow-sm hover:shadow-lg transition-all border border-green-100 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-green-300 via-green-200 to-yellow-200 shadow-lg"
-    >
-      <div className="text-4xl mb-4">{icon}</div>
-      <h3 className="text-xl font-semibold text-green-700 mb-2">{title}</h3>
-      <p className="text-3xl font-bold text-green-600 mb-2">{value}</p>
-      <p className="text-sm text-stone-600">{description}</p>
-    </motion.div>
+    <div className="bg-white p-6 rounded-lg shadow-sm">
+      <h3 className="text-lg font-medium text-gray-900 mb-2">{title}</h3>
+      <p className="text-3xl font-bold text-green-600 mb-1">{value}</p>
+      <p className="text-sm text-gray-500">{description}</p>
+    </div>
   )
 }
 
-function FeatureCard({ title, description, icon, linkText, onClick }: {
+function FeatureCard({ title, description }: {
   title: string;
   description: string;
-  icon: string;
-  linkText: string;
-  onClick: () => void;
 }) {
   return (
-    <motion.div
-      whileHover={{ y: -5 }}
-      transition={{ duration: 0.2 }}
-      className="bg-gradient-to-b from-white/90 to-green-200/50 backdrop-blur-sm rounded-xl p-8 shadow-sm hover:shadow-lg transition-all group border border-green-100"
-    >
-      <div className="text-4xl mb-4 transform group-hover:scale-110 transition-transform">{icon}</div>
-      <h3 className="text-xl font-semibold text-green-700 mb-2">{title}</h3>
-      <p className="text-stone-600 mb-4">{description}</p>
-      <button
-        onClick={onClick}
-        className="text-green-600 font-medium hover:text-green-700 flex items-center gap-2 group"
-      >
-        {linkText}
-        <span className="transform group-hover:translate-x-1 transition-transform">→</span>
-      </button>
-    </motion.div>
+    <div className="bg-white p-6 border border-green-300 rounded-lg shadow-sm">
+      <h3 className="text-lg font-medium text-gray-900 mb-2">{title}</h3>
+      <p className="text-gray-500">{description}</p>
+    </div>
   )
 }
 
@@ -537,8 +499,6 @@ export default function Dashboard() {
       setShowLandingPage(false)
     }
   }, [authenticated])
-
-
 
   const getDisplayAddress = () => {
     if (!user?.linkedAccounts) return null;
@@ -568,90 +528,39 @@ export default function Dashboard() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-green-50 via-stone-50 to-green-50">
-      {/* Navbar */}
-      <nav className="bg-gradient-to-r from-green-900 to-green-800 text-white shadow-lg">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-white">
+      {/* Updated Navbar */}
+      <nav className="bg-green-800 border-b border-green-700 text-white">
+        <div className="container mx-auto px-6">
           <div className="flex justify-between h-16">
-            <div className="flex items-center space-x-3">
-              {/* Logo and Title - Clickable */}
-              <button 
-                onClick={() => setShowLandingPage(true)}
-                className="flex items-center space-x-3 hover:opacity-90 transition-opacity"
-              >
-                <div className="w-10 h-10 relative">
-                  <Image
-                    src="/machu.webp"
-                    alt="Machu Picchu Logo"
-                    fill
-                    className="object-contain"
-                  />
-                </div>
-                <h1 className="text-xl font-bold text-yellow-400">Machu Picchu</h1>
-              </button>
+            <div className="flex items-center">
+              <Image
+                src="/machu.webp"
+                alt="Logo"
+                width={40}
+                height={40}
+                className="object-contain"
+              />
+              <span className="ml-3 text-xl font-semibold">Machu Picchu Initiative</span>
             </div>
-
-            <div className="flex items-center space-x-8">
-              {/* Navigation Links */}
-              <div className="hidden md:flex space-x-6">
-                {authenticated && (
-                  <button
-                    onClick={() => setShowLandingPage(false)}
-                    className={`text-white/80 hover:text-yellow-400 px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                      !showLandingPage ? 'border-b-2 border-yellow-400' : 'border-b-2 border-transparent'
-                    }`}
-                  >
-                    Dashboard
-                  </button>
-                )}
-              </div>
-              
-              {/* Auth Buttons */}
+            
+            <div className="flex items-center gap-4">
               {authenticated ? (
-                <div className="flex items-center space-x-4">
-                  <div className="flex items-center bg-green-800/50 rounded-lg px-4 py-2 border border-green-700/30">
-                    <svg 
-                      className="w-4 h-4 text-green-400 mr-2" 
-                      fill="none" 
-                      stroke="currentColor" 
-                      viewBox="0 0 24 24"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    <span className="text-sm text-white/90 font-medium">
-                      {getDisplayAddress() || 'No wallet connected'}
-                    </span>
-                  </div>
+                <>
+                  <span className="text-sm text-green-100">{getDisplayAddress()}</span>
                   <button
                     onClick={logout}
-                    className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-all transform hover:scale-105 flex items-center space-x-2"
+                    className="px-4 py-2 bg-green-700 text-white rounded-md hover:bg-green-600"
                   >
-                    <span>Logout</span>
-                    <svg 
-                      className="w-4 h-4" 
-                      fill="none" 
-                      stroke="currentColor" 
-                      viewBox="0 0 24 24"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-                    </svg>
+                    Logout
                   </button>
-                </div>
+                </>
               ) : (
                 <button
-                  disabled={!ready}
                   onClick={() => login()}
-                  className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-all transform hover:scale-105 disabled:opacity-50 flex items-center space-x-2"
+                  className="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-500"
                 >
-                  <span>Login</span>
-                  <svg 
-                    className="w-4 h-4" 
-                    fill="none" 
-                    stroke="currentColor" 
-                    viewBox="0 0 24 24"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
-                  </svg>
+                  Login
                 </button>
               )}
             </div>
@@ -661,40 +570,15 @@ export default function Dashboard() {
 
       {/* Main Content */}
       {authenticated ? (
-        <main className={``}>
+        <main>
           {showLandingPage ? (
-                <LandingPage />
+            <LandingPage />
           ) : (
-            <>
-<div className='mx-auto px-4 sm:px-6 lg:px-48 py-12 justify-center items-center bg-gradient-to-r from-green-50 via-yellow-100 to-green-50'>
-              <div className="mb-12 bg-white/50 p-6 rounded-xl backdrop-blur-sm">
-                <div className="flex space-x-6 border-b border-green-900/10 ">
-                  {['overview', 'helper-programs'].map((tab) => (
-                    <button
-                      key={tab}
-                      onClick={() => setActiveTab(tab)}
-                      className={`${
-                        activeTab === tab
-                          ? 'border-green-600 text-green-600'
-                          : 'border-transparent text-stone-600 hover:text-green-600 hover:border-green-600'
-                      } pb-4 px-1 border-b-2 font-medium text-sm transition-colors`}
-                    >
-                      {tab.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              {activeTab === 'overview' && <DashboardOverview />}
-              {activeTab === 'helper-programs' && <HelperProgramsList />}
-              </div>
-            </>
+            <DashboardOverview />
           )}
         </main>
       ) : (
-        <main className="w-screen overflow-hidden">
-          <LandingPage />
-        </main>
+        <LandingPage />
       )}
     </div>
   )

@@ -1,25 +1,33 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import ChatBot from '../../components/chatbot/chatbot'
+import ChatBot from '../chatbot/chatbot'
+import { usePrivyAuth } from '@/hooks/usePrivyAuth'
 
+// Add types for props
+interface SectionHeaderProps {
+  children: React.ReactNode;
+}
 
+interface AnimatedCardProps {
+  children: React.ReactNode;
+  delay?: number;
+}
 
-// Animated Section Header
-const SectionHeader = ({ children }) => (
+// Update component definitions with types
+const SectionHeader = ({ children }: SectionHeaderProps) => (
   <motion.h2
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ duration: 0.6 }}
-    className="text-4xl md:text-5xl font-bold text-center mb-16"
+    className="text-4xl md:text-5xl font-bold text-center mb-16 w-screen"
   >
     {children}
   </motion.h2>
 )
 
-// Animated Card
-const AnimatedCard = ({ children, delay = 0 }) => (
+const AnimatedCard = ({ children, delay = 0 }: AnimatedCardProps) => (
   <motion.div
     initial={{ opacity: 0, y: 30 }}
     whileInView={{ opacity: 1, y: 0 }}
@@ -32,11 +40,31 @@ const AnimatedCard = ({ children, delay = 0 }) => (
   </motion.div>
 )
 
+// Add type for stats and features data
+interface Stat {
+  number: string;
+  label: string;
+}
+
+interface Feature {
+  title: string;
+  description: string;
+  image: string;
+}
+
+interface Story {
+  title: string;
+  description: string;
+  image: string;
+}
+
 export default function Home() {
+  const { login } = usePrivyAuth()
+
   return (
-    <main className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center">
+    <main className="min-h-screen w-full overflow-x-hidden">
+      {/* Hero Section - Enhanced gradient and spacing */}
+      <section className="relative min-h-screen flex items-center w-full">
         <div className="absolute inset-0 z-0">
           <motion.div
             initial={{ scale: 1.1 }}
@@ -48,15 +76,17 @@ export default function Home() {
               src="/mp2.jpg"
               alt="Sustainable farming and aid distribution"
               fill
-              className="object-cover"
+              className=" object-cover brightness-75 overflow-clip"
               priority
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-transparent" />
+
+
           </motion.div>
         </div>
         
-        <div className="container mx-auto px-6 z-10 ">
-          <div className="flex flex-col items-start max-w-3xl text-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl w-full z-10">
+          <div className="flex flex-col items-start max-w-3xl text-white space-y-2">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -106,12 +136,12 @@ export default function Home() {
               transition={{ duration: 0.6, delay: 0.8 }}
               className="flex gap-4"
             >
-              <Link 
-                href="/dashboard"
+              <button 
+                onClick={login}
                 className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-lg text-lg font-semibold transition transform hover:scale-105"
               >
                 Make an Impact
-              </Link>
+              </button>
               <Link
                 href="https://github.com/kvutien/Project-Wonderful_Life-Machu_Picchu"
                 target="_blank"
@@ -137,27 +167,27 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* Stats Section with Counters */}
-      <section className="py-20 bg-stone-50">
-        <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+      {/* Stats Section - Enhanced cards */}
+      <section className="py-24 bg-gradient-to-b from-stone-50 to-white w-full">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
             {[
               { number: '1M+', label: 'Lives Impacted' },
               { number: '50+', label: 'Global Partners' },
               { number: '100%', label: 'Transparent Impact' }
             ].map((stat, index) => (
               <AnimatedCard key={index} delay={index * 0.2}>
-                <div className="bg-white p-8 rounded-xl shadow-sm text-center transform transition hover:shadow-lg">
+                <div className="bg-white p-10 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] text-center transform transition-all duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:-translate-y-1">
                   <motion.div
                     initial={{ opacity: 0, scale: 0.5 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: index * 0.2 }}
-                    className="text-4xl font-bold text-green-600 mb-2"
+                    className="text-5xl font-bold text-green-600 mb-3"
                   >
                     {stat.number}
                   </motion.div>
-                  <div className="text-stone-600">{stat.label}</div>
+                  <div className="text-stone-600 text-lg">{stat.label}</div>
                 </div>
               </AnimatedCard>
             ))}
@@ -165,11 +195,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Features Section with Parallax */}
-      <section className="py-20 bg-gradient-to-b from-green-900 to-green-800 text-white overflow-hidden">
-        <div className="container mx-auto px-6">
+      {/* Features Section - Enhanced cards and gradients */}
+      <section className="py-24 bg-gradient-to-b from-green-900 via-green-800 to-green-900 text-white w-full">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <SectionHeader>Nurturing Communities Through Technology</SectionHeader>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
             {[
               {
                 title: 'Smart Resource Distribution',
@@ -188,17 +218,17 @@ export default function Home() {
               }
             ].map((feature, index) => (
               <AnimatedCard key={index} delay={index * 0.2}>
-                <div className="bg-white/10 p-8 rounded-xl backdrop-blur transform transition hover:bg-white/20">
-                  <div className="h-48 mb-6 relative overflow-hidden rounded-lg">
+                <div className="bg-white/5 p-8 rounded-2xl backdrop-blur-lg transform transition-all duration-300 hover:bg-white/10 hover:-translate-y-1 border border-white/10">
+                  <div className="h-52 mb-8 relative overflow-hidden rounded-xl">
                     <Image
                       src={feature.image}
                       alt={feature.title}
                       fill
-                      className="object-cover transform transition hover:scale-110"
+                      className="object-cover transform transition duration-700 hover:scale-110"
                     />
                   </div>
-                  <h3 className="text-2xl font-semibold mb-4">{feature.title}</h3>
-                  <p className="text-gray-200">{feature.description}</p>
+                  <h3 className="text-2xl font-semibold mb-4 text-yellow-400">{feature.title}</h3>
+                  <p className="text-gray-200 leading-relaxed">{feature.description}</p>
                 </div>
               </AnimatedCard>
             ))}
@@ -206,11 +236,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Success Stories with Hover Effects */}
-      <section className="py-20 bg-stone-50 text-green-900">
-        <div className="container mx-auto px-6">
+      {/* Success Stories - Enhanced cards */}
+      <section className="py-24 bg-gradient-to-b from-white to-stone-50 text-green-900 w-full">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <SectionHeader>Growing Success Stories</SectionHeader>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
             {[
               {
                 title: 'Agricultural Revival in Peru',
@@ -224,18 +254,19 @@ export default function Home() {
               }
             ].map((story, index) => (
               <AnimatedCard key={index} delay={index * 0.2}>
-                <div className="bg-white rounded-xl overflow-hidden shadow-lg group">
-                  <div className="h-72 relative overflow-hidden">
+                <div className="bg-white rounded-2xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.06)] group transition-all duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
+                  <div className="h-80 relative overflow-hidden">
                     <Image
                       src={story.image}
                       alt={story.title}
                       fill
-                      className="object-cover transform transition duration-500 group-hover:scale-110"
+                      className="object-cover transform transition duration-700 group-hover:scale-110"
                     />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
-                  <div className="p-8">
+                  <div className="p-10">
                     <h3 className="text-2xl font-semibold mb-4 text-green-800">{story.title}</h3>
-                    <p className="text-stone-600">{story.description}</p>
+                    <p className="text-stone-600 leading-relaxed">{story.description}</p>
                   </div>
                 </div>
               </AnimatedCard>
@@ -244,8 +275,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA Section with Gradient Animation */}
-      <section className="py-20 bg-yellow-400 relative overflow-hidden">
+      {/* CTA Section - Enhanced gradient and hover effects */}
+      <section className="py-24 bg-yellow-400 relative overflow-hidden w-full">
         <motion.div
           animate={{
             background: [
@@ -254,13 +285,13 @@ export default function Home() {
             ],
           }}
           transition={{
-            duration: 3,
+            duration: 4,
             repeat: Infinity,
             repeatType: "reverse",
           }}
           className="absolute inset-0"
         />
-        <div className="container mx-auto px-6 text-center relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -281,9 +312,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer with Contact */}
-      <footer className="bg-green-900 text-white py-16">
-        <div className="container mx-auto px-6">
+      {/* Footer - Enhanced spacing and hover effects */}
+      <footer className="bg-gradient-to-b from-green-800 to-green-900 text-white py-20 w-full">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div>
               <div className="mb-8 flex items-center gap-4">
