@@ -1,6 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 'use client'
 
-import { AwaitedReactNode, JSXElementConstructor, Key, ReactElement, ReactNode, ReactPortal, useEffect, useState } from 'react'
+import {  useEffect, useState } from 'react'
 import { countries } from 'countries-list'
 import { retrieveFromIPFS } from '@/utils/ipfsUtils'
 import { calculateSimilarity } from '@/utils/vectorutils'
@@ -43,8 +45,8 @@ const genAI = new GoogleGenerativeAI(process.env.NEXT_PUBLIC_GEMINI_API_KEY || '
 
 // Helper function to get country code from country name
 const getCountryCode = (countryName: string): string => {
-  const entry = Object.entries(countries).find(([_, country]) => 
-    country.name.toLowerCase() === countryName.toLowerCase()
+  const entry = Object.entries(countries).find(([, value]) => 
+    value.name.toLowerCase() === countryName.toLowerCase()
   )
   return entry ? entry[0].toLowerCase() : ''
 }

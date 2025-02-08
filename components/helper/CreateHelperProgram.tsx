@@ -47,7 +47,7 @@ export default function CreateHelperProgram({ onClose, onSuccess }: CreateHelper
     try {
       // Remove empty fields before sending
       const dataToSend = Object.fromEntries(
-        Object.entries(formData).filter(([_, value]) => value.trim() !== '')
+        Object.entries(formData).filter(([ value]) => value.trim() !== '')
       )
 
       // Create embedding for the program

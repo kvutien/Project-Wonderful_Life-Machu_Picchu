@@ -27,35 +27,3 @@ body {
   }
 }
 
-
-body {
-  /* Border Radius */
-  --privy-border-radius-sm: '0.375rem';  /* rounded */
-  --privy-border-radius-md: '0.5rem';    /* rounded-lg */
-  --privy-border-radius-lg: '0.75rem';   /* rounded-xl */
-  --privy-border-radius-full: '9999px';  /* rounded-full */
-
-  /* Background Colors */
-  --privy-color-background: '#f0fdf4';    /* green-50 */
-  --privy-color-background-2: '#dcfce7';  /* green-100 */
-  --privy-color-background-3: '#bbf7d0';  /* green-200 */
-
-  /* Foreground/Text Colors */
-  --privy-color-foreground: '#166534';    /* green-800 */
-  --privy-color-foreground-2: '#14532d';  /* green-900 */
-  --privy-color-foreground-3: '#365314';  /* lime-900 */
-  --privy-color-foreground-4: '#1a2e05';  /* darker lime */
-  --privy-color-foreground-accent: '#eab308'; /* yellow-500 */
-
-  /* Accent Colors */
-  --privy-color-accent: '#16a34a';        /* green-600 */
-  --privy-color-accent-light: '#22c55e';  /* green-500 */
-  --privy-color-accent-lightest: '#86efac'; /* green-300 */
-  --privy-color-accent-dark: '#15803d';   /* green-700 */
-  --privy-color-accent-darkest: '#166534'; /* green-800 */
-
-  /* Status Colors */
-  --privy-color-success: '#16a34a';       /* green-600 */
-  --privy-color-error: '#dc2626';         /* red-600 */
-  --privy-color-error-light: '#fecaca';   /* red-200 */
-}

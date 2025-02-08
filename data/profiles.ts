@@ -1,7 +1,7 @@
 import { Profile } from '@/types/profile'
 import { createProgramEmbedding } from '@/utils/vectorutils'
 import { storeProfileWithEmbedding } from '@/utils/ipfsUtils'
-import { addHash } from '@/app/api/profiles/hashes/route'
+
 
 
 // Function to process and store a profile
@@ -39,8 +39,7 @@ export async function addProfile(profileData: string) {
     // Update profile with IPFS hash
     profile.ipfsHash = ipfsHash
     
-    // Add hash to tracked hashes
-    addHash(ipfsHash)
+
     
     return profile
   } catch (error) {
@@ -50,7 +49,7 @@ export async function addProfile(profileData: string) {
 }
 
 // Example usage for the profiles data
-const profiles = [
+export const profiles = [
   `- Profile 1: Amina Diallo
 - Name: Amina Diallo
 - Age: 34

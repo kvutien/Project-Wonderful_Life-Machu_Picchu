@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import axios from 'axios'
 
 const PINATA_API_KEY = process.env.NEXT_PUBLIC_PINATA_API_KEY

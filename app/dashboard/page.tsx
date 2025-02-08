@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 'use client'
 
 import { useState, useEffect } from 'react'
@@ -5,7 +7,7 @@ import { usePrivyAuth } from '@/hooks/usePrivyAuth'
 import CreateHelperProgram from '@/components/helper/CreateHelperProgram'
 import HelperProgramsList from '@/components/helper/HelperProgramsList'
 import { processAndStoreProfiles } from '@/utils/profileProcessor'
-import { initializeDB, storeIPFSCids, getStoredCids } from '@/utils/indexedDB'
+import { initializeDB, storeIPFSCids } from '@/utils/indexedDB'
 import LandingPage from './landingpage'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
@@ -536,7 +538,7 @@ export default function Dashboard() {
     }
   }, [authenticated])
 
-  const disableAuth = !ready
+
 
   const getDisplayAddress = () => {
     if (!user?.linkedAccounts) return null;

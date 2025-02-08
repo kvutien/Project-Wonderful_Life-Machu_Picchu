@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server'
 import { createProgramEmbedding } from '@/utils/vectorutils'
-import { storeHelperProgramWithEmbedding, retrieveFromIPFS } from '@/utils/ipfsUtils'
+import { storeHelperProgramWithEmbedding } from '@/utils/ipfsUtils'
 import { HelperProgram, CreateHelperProgramInput, UpdateHelperProgramInput } from '@/types/helperProgram'
 
 // In-memory storage with proper typing
