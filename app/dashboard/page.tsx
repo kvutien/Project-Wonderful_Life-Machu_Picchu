@@ -379,7 +379,7 @@ function DashboardOverview() {
         <div className="relative z-10 container mx-auto px-6">
           <h2 className="text-6xl font-bold text-white mb-4">Machu Picchu Initiative</h2>
           <p className="text-xl text-white/90 mb-8 max-w-3xl">
-            Inspired by the Incan citadel's spirit of community and innovation, we connect those in need 
+            Inspired by the Incan citadel&apos;s spirit of community and innovation, we connect those in need 
             with helper organizations through AI and blockchain technology. Like the perfectly fitted stones 
             of Machu Picchu, we build stronger communities through collaboration.
           </p>

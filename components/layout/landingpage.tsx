@@ -41,22 +41,7 @@ const AnimatedCard = ({ children, delay = 0 }: AnimatedCardProps) => (
 )
 
 // Add type for stats and features data
-interface Stat {
-  number: string;
-  label: string;
-}
 
-interface Feature {
-  title: string;
-  description: string;
-  image: string;
-}
-
-interface Story {
-  title: string;
-  description: string;
-  image: string;
-}
 
 export default function Home() {
   const { login } = usePrivyAuth()
