@@ -121,11 +121,11 @@ pnpm start
 ### Troubleshooting
 - If you encounter any issues with dependencies, try removing `node_modules` and `pnpm-lock.yaml`:
 
-bash
+```bash
 rm -rf node_modules
 rm pnpm-lock.yaml
 pnpm install
-
+```
 
 - Ensure all environment variables are properly set
 - Check Node.js version compatibility
