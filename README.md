@@ -33,7 +33,8 @@ Machu Picchu is collaborative and open source. Volunteer hackers are welcome.
 
 ## Quick Look at *Wonderful Life*
 ### Overall View
-![Overall View](./images/wonderful_life_overall.png)
+
+<img width="1283" alt="wonderful_life_overall" src="https://github.com/user-attachments/assets/6dea9f13-b51a-461a-a354-c915f673aef7" />
 
 There are 2 actors in this demo, the Person in Need and the International Helper Organization. Note that in real life and in Machu Picchu there are more actors.
 - **Person in Need** submits its profile in free-form text to **International Helper Organization**
@@ -43,9 +44,11 @@ There are 2 actors in this demo, the Person in Need and the International Helper
 
 
 ### State Machine Profile Embedding Agent
-![Embedding State Machine](./images/wonderful_life_states1.png)
+<img width="1298" alt="wonderful_life_states1" src="https://github.com/user-attachments/assets/66e108c6-0374-4ce3-83dd-1b62b75028ee" />
+
 ### State Machine Profile Matching with Help Program Agent
-![matching State Machine](./images/wonderful_life_states2.png)
+<img width="1141" alt="wonderful_life_states2" src="https://github.com/user-attachments/assets/35b909bc-2ef4-4b66-a579-7eb1fdf7b738" />
+
 
 ## Bonus: origin of the names *Machu Picchu* and *Wonderful Life*
 - *Machu Picchu*, an Inca citadel built in the 15th century, is nestled high in the Andes Mountains of Peru. It was brought to wider attention in 1911 by Hiram Bingham. Its construction is remarkable for its sophisticated dry-stone walls, which fit together perfectly without mortar. **Huge blocks carefully crafted to make a still bigger citadel**.
