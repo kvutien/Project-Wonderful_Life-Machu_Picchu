@@ -290,7 +290,7 @@ export default function Home() {
             className="text-center"
           >
             <h2 className="text-5xl md:text-6xl font-bold mb-8 text-green-900">
-              Join the Wonderful Life Movement
+              Join Machu Picchu
             </h2>
             <p className="text-xl md:text-2xl mb-12 max-w-2xl mx-auto text-green-800/90 leading-relaxed">
               Be part of a revolutionary approach to humanitarian aid that combines technology with compassion
@@ -347,7 +347,7 @@ export default function Home() {
                   <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
                   </svg>
-                  <span>+352 123 456 789</span>
+                  <span>+352 621 275 601</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
