@@ -37,17 +37,17 @@ Machu Picchu is collaborative and open source. Volunteer hackers are welcome.
 
 <img width="1283" alt="wonderful_life_overall" src="https://github.com/user-attachments/assets/6dea9f13-b51a-461a-a354-c915f673aef7" />
 
-There are 2 actors in this demo, the Person in Need and the International Helper Organization. Note that in real life and in Machu Picchu there are more actors.
+There are 2 actors in this demo, the Person in Need and the International Helper Organization. (Note that in real life and in Machu Picchu there are more actors.)
 - **Person in Need** submits its profile in free-form text to **International Helper Organization**
 - **International Helper Organization** does the embedding, store in IPFS the original profile text and the vector
 - When the IPFS CID are received, it stores them on blockchain
 - When **International Helper Organization** receives a Program Sheet of a Helper Program, it makes the embedding of it and matches the vector with the closest profiles of Person in Need to entitle them for help.
 
 
-### State Machine Profile Embedding Agent
+### State Machine Profile-Embedding Agent
 <img width="1298" alt="wonderful_life_states1" src="https://github.com/user-attachments/assets/66e108c6-0374-4ce3-83dd-1b62b75028ee" />
 
-### State Machine Profile Matching with Help Program Agent
+### State Machine Profile-Matching with Help Program Agent
 <img width="1141" alt="wonderful_life_states2" src="https://github.com/user-attachments/assets/35b909bc-2ef4-4b66-a579-7eb1fdf7b738" />
 
 
