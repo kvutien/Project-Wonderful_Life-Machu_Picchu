@@ -15,10 +15,10 @@ The complete scenario of this demo is told in a chatbot session, DeepSeek & Le C
 - Machu Picchu is explained in this 10 minutes video podcast: https://youtu.be/z1ylfi60ES0
 
 As compared to the 10' video, *Wonderful Life* differs because it is of a hackathon illustration scale. In the video there are 4 actors:
-- The donors (you and I, governmental budget, UN budget)
-- The international helper organizations (Oxfam, UNICEF, WFP etc.)
-- The local organizations with field helpers
-- The persons in need
+- The **donors** (you and I, governmental budget, UN budget)
+- The international **helper organizations** (Oxfam, UNICEF, WFP etc.)
+- The local organizations with **field helpers**
+- The **persons in need**
 
 *Wonderful Life* only has 2 actors, the international helper organization and the person in need.
 In the future there are many more functions that are foreseen. Some are:
