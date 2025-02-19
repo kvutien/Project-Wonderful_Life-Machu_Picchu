@@ -33,7 +33,7 @@ In the future there are many more functions that are foreseen. Some are:
 **Machu Picchu is collaborative and open source. Volunteer hackers are welcome.**
 
 ## Quick Look at *Wonderful Life*
-Wonderful Life is open-sourced and can serve as a template to make a dashboard of any international Helper organizations using Machu Picch
+*Wonderful Life* is open-sourced and can serve as a template to make a dashboard of any international Helper organizations using Machu Picch
 u.
 ### Overall View
 
