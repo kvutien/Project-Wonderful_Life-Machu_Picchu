@@ -30,9 +30,11 @@ In the future there are many more functions that are foreseen. Some are:
 - Use of DeFi by international helper organizations to do **Cash & Voucher help**
 - more...
 
-Machu Picchu is collaborative and open source. Volunteer hackers are welcome.
+**Machu Picchu is collaborative and open source. Volunteer hackers are welcome.**
 
 ## Quick Look at *Wonderful Life*
+Wonderful Life is open-sourced and can serve as a template to make a dashboard of any international Helper organizations using Machu Picch
+u.
 ### Overall View
 
 <img width="1283" alt="wonderful_life_overall" src="https://github.com/user-attachments/assets/6dea9f13-b51a-461a-a354-c915f673aef7" />
@@ -53,9 +55,12 @@ There are 2 actors in this demo, the Person in Need and the International Helper
 
 ## Bonus: origin of the names *Machu Picchu* and *Wonderful Life*
 - *Machu Picchu*, an Inca citadel built in the 15th century, is nestled high in the Andes Mountains of Peru. It was brought to wider attention in 1911 by Hiram Bingham. Its construction is remarkable for its sophisticated dry-stone walls, which fit together perfectly without mortar. **Huge blocks carefully crafted to make a still bigger citadel**.
-- *It's a Wonderful Life* is a 1946 Christmas fantasy drama film produced and directed by Frank Capra, starring James Stewart as George Bailey, a man who has given up his personal dreams in order to **help others in his community**. His thoughts of suicide on Christmas Eve bring about the intervention of his guardian angel, Clarence Odbody. Clarence shows George all the lives he touched and what the world would be like, if he had never existed
+- *It's a Wonderful Life* is a 1946 Christmas fantasy drama film produced and directed by Frank Capra, starring James Stewart as George Bailey, a man who has given up his personal dreams in order to **help others in his community**. His thoughts of suicide on Christmas Eve bring about the intervention of his guardian angel, Clarence Odbody. Clarence shows George all the lives he touched and what the world would be like, if he had never existed.
 
-## How to install and run *Wonderful Life*
+# Current demo scenario
+1. The welcome screen is a dashboard of an International Helper Organization. When scrolled down, it displays explanations about the project and its bottom bar presents links to other resources,, inluding a X (Twitter) cannel
+
+# How to install and run *Wonderful Life*
 
 You can access the live demo at: [Wonderful Life Demo](https://project-wonderful-life-mac-git-70700e-rushikeshnimkars-projects.vercel.app/dashboard)
 
