@@ -96,20 +96,20 @@ You can access the live demo at: [Wonderful Life Demo](https://project-wonderful
 1. Clone the repository
 
 ```bash
-git clone https://github.com/kvutien/Project-Wonderful_Life-Machu_Picchu.git
-cd Project-Wonderful_Life-Machu_Picchu
+% git clone https://github.com/kvutien/Project-Wonderful_Life-Machu_Picchu.git
+% cd Project-Wonderful_Life-Machu_Picchu
 ```
 
 2. Install dependencies
 
 ```bash
-pnpm install
+% pnpm install
 ```
 
 3. Set up environment variables
 
 ```bash
-cp .env.sample .env
+% cp .env.sample .env
 ```
 
 Edit .env file with your API keys
@@ -117,7 +117,7 @@ Edit .env file with your API keys
 4. Run the development server
 
 ```bash
-pnpm dev
+% pnpm dev
 ```
 
 5. Open your browser and navigate to
@@ -127,8 +127,8 @@ pnpm dev
 ### Build for Production
 
 ```bash
-pnpm build
-pnpm start
+% pnpm build
+% pnpm start
 ```
 
 
@@ -136,9 +136,9 @@ pnpm start
 - If you encounter any issues with dependencies, try removing `node_modules` and `pnpm-lock.yaml`:
 
 ```bash
-rm -rf node_modules
-rm pnpm-lock.yaml
-pnpm install
+% rm -rf node_modules
+% rm pnpm-lock.yaml
+% pnpm install
 ```
 
 - Ensure all environment variables are properly set
