@@ -29,6 +29,7 @@ In the future there are many more functions that are foreseen. Some are:
 - Use of Earth Observation satellite images to assess **crop losses**
 - Use of DeFi by international helper organizations to do **Cash & Voucher help**
 - more...
+- 
 Machu Picchu is collaborative and open source. Volunteer hackers are welcome.
 
 ## Quick Look at *Wonderful Life*
