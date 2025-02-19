@@ -58,7 +58,26 @@ There are 2 actors in this demo, the Person in Need and the International Helper
 - *It's a Wonderful Life* is a 1946 Christmas fantasy drama film produced and directed by Frank Capra, starring James Stewart as George Bailey, a man who has given up his personal dreams in order to **help others in his community**. His thoughts of suicide on Christmas Eve bring about the intervention of his guardian angel, Clarence Odbody. Clarence shows George all the lives he touched and what the world would be like, if he had never existed.
 
 # Current demo scenario
-1. The welcome screen is a dashboard of an International Helper Organization. When scrolled down, it displays explanations about the project and its bottom bar presents links to other resources,, inluding a X (Twitter) cannel
+![Splash screen](./images/0-splash_screen.jpg)
+1. The welcome screen is a dashboard of an International Helper Organization. When scrolled down, it displays explanations about the project and its bottom bar presents links to other web resources, inluding a fully working X (Twitter) channel
+   ![Bottom bar](./images/1-bottom_bar.jpg)
+
+2. We connect a wallet that will be used to pay further transactions, for example blockchain storage of the profile CIDs
+   ![Bottom bar](./images/2-connect_wallet.jpg)
+
+3. We upload the profiles of persons in need
+   ![Bottom bar](./images/3-upload_profiles.jpg)
+
+4. Waiting for the profiles to we embedded and stored, we chat with the AI assistant
+   ![Bottom bar](./images/4-assistant_chat.jpg)
+
+5. Once the profiles are available, we define a sample Helper Program in a semi-structured way and we also embed it
+   ![Bottom bar](./images/5-helper_program.jpg)
+   
+6. Now we can ask for the persons in need who have profiles that match the best to Helper Program.
+   ![Bottom bar](./images/6-match_profiles.jpg)
+
+
 
 # How to install and run *Wonderful Life*
 
