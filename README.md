@@ -73,7 +73,7 @@ There are 2 actors in this demo, the Person in Need and the International Helper
 
 5. Once the profiles are available, we define a sample Helper Program in a semi-structured way and we also embed it
    ![Bottom bar](./images/5-helper_program.jpg)
-   
+
 6. Now we can ask for the persons in need who have profiles that match the best to Helper Program.
    ![Bottom bar](./images/6-match_profiles.jpg)
 
@@ -90,17 +90,6 @@ You can access the live demo at: [Wonderful Life Demo](https://project-wonderful
 - A modern web browser
 - Code editor (VS Code recommended)
 
-
-## How to install and run *Wonderful Life*
-
-You can access the live demo at: [Wonderful Life Demo](https://project-wonderful-life-mac-git-70700e-rushikeshnimkars-projects.vercel.app/dashboard)
-
-### Prerequisites
-- Node.js (v18 or higher)
-- pnpm (v8 or higher)
-- Git
-- A modern web browser
-- Code editor (VS Code recommended)
 
 ### Installation Steps
 
