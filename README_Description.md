@@ -23,6 +23,8 @@ The sources in the root folder include a list of dependencies, a configuration f
     *   The `plugins` array is empty.
 
 ### Notes about Tailwind CSS and PostCSS
+***CSS** (Cascading Style Sheets) is a stylesheet language used to describe the presentation of a document written in HTML or XML, controlling layout, colors, fonts, and overall visual design.*
+
 #### Tailwind CSS
 
 Tailwind CSS is a utility-first CSS framework that provides low-level utility classes to build custom user interfaces without encouraging any two sites to look the same. Unlike traditional CSS frameworks like Bootstrap, which come with pre-designed components, Tailwind CSS focuses on providing utility classes that you can compose to create your own designs.
