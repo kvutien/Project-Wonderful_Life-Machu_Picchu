@@ -118,7 +118,7 @@ In a React or Next.js project, several of these folders are commonly used, each 
 
 - **hooks**: This folder is used to store custom React hooks. Hooks are functions that let you use state and other React features in functional components. Custom hooks allow you to extract and reuse logic across different components.
 
-- **images**: This folder is used to store image assets used in the application. It's not created by React or Next.js but is a common practice to organize assets in a separate folder.
+- **images**: This folder is used to store image assets used in the README.md file. It's not created by React or Next.js but is a common practice to organize assets in a separate folder.
 
 - **lib**: This folder can be used to store utility functions or libraries that are used across the application. It's not specific to React or Next.js but can be part of a project structure.
 
