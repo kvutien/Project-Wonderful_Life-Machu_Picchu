@@ -6,7 +6,7 @@ The sources in the root folder include a list of dependencies, a configuration f
 
 ### Dependencies List:
 
-*   The list specifies details for various **Node.js modules**, including **versions, resolved locations, integrity checksums, and licenses**.
+*   The list in file `package.json` specifies details for various **Node.js modules**, including **versions, resolved locations, integrity checksums, and licenses**.
 *   It encompasses modules such as `@babel`, `@emotion`, `@eslint`, `@ethersproject`, `@lit`, `@marsidev/react-turnstile`, `@next`, `@noble/hashes`, `@pinata/sdk`, `axios`, `buffer`, `chalk`, `cookie-es`, `elliptic`, `eslint`, `form-data`, `js-yaml`, `lokijs`, `react`, `uuid`, `viem`, and many others.
 
 ### Tailwind CSS Configuration File:
