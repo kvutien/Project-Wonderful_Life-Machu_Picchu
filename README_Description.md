@@ -114,9 +114,11 @@ In a React or Next.js project, several of these folders are commonly used, each 
 
 - **app**: This folder is often used to store the main application components and logic. In a Next.js project, the `app` directory can be used to define routes and components using the new App Router introduced in Next.js 13.
 
-  In this project,  the **app** folder serves as equivalent to the **pages** folder. It contains a `page.tsx` as well as the **api** folder that contains React routes to handle form submissions, to fetch data from a database, or to perform other server-side operations (here it calls on the Privy authentication service).
+  In this project,  the **app** folder serves as equivalent to the usual Next.js **pages** folder. It contains a `page.tsx` as well as the **api** folder that contains React routes to handle form submissions, to fetch data from a database, or to perform other server-side operations (here it calls on the Privy authentication service).
 
 - **components**: This folder is commonly used to store reusable UI components. Each component typically has its own file or subdirectory, making it easier to manage and reuse components across the application.
+
+  In this project,  the **components** folder contains a **chatbot** folder and a **helper** folder that contains React routes to handle a chatbot and to collect the parameters of a helper program.
 
 - **data**: This folder is not specific to React or Next.js but can be used to store static data files, such as JSON files, that the application might need. It's not typically created by React or Next.js itself but can be part of a project structure.
 
