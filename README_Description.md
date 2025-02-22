@@ -99,7 +99,7 @@ In a typical Next.js application, the entry point is not an `index.html` file as
 
 - **Pages Directory**: Next.js uses a **pages** directory to define the routes of your application. Each file in the **pages** directory automatically becomes a route. For example, a file named `index.js` or `index.tsx` in the **pages** directory serves as the entry point for the root URL of the application. 
   
-  In this project,  the **app** folder serves as equivalent to the **pages** folder. It contains a `page.tsx` as well as the **api** folder that contains React routes to handle form submissions, to fetch data from a database, or to perform other server-side operations (here it calls on the Privy authentication service).
+  In this project,  the **app** folder serves as equivalent to the **pages** folder.
 
 - **Automatic Code Splitting**: Next.js handles code splitting automatically, so you don't need to manually configure an entry point like `index.html`. Instead, Next.js compiles and serves the necessary JavaScript and HTML for each page.
 
@@ -113,6 +113,8 @@ In summary, while a traditional React application might use an `index.html` file
 In a React or Next.js project, several of these folders are commonly used, each serving a specific purpose. Here's a breakdown of what each folder might contain if it is created by React or Next.js:
 
 - **app**: This folder is often used to store the main application components and logic. In a Next.js project, the `app` directory can be used to define routes and components using the new App Router introduced in Next.js 13.
+
+  In this project,  the **app** folder serves as equivalent to the **pages** folder. It contains a `page.tsx` as well as the **api** folder that contains React routes to handle form submissions, to fetch data from a database, or to perform other server-side operations (here it calls on the Privy authentication service).
 
 - **components**: This folder is commonly used to store reusable UI components. Each component typically has its own file or subdirectory, making it easier to manage and reuse components across the application.
 
