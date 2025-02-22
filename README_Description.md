@@ -23,7 +23,7 @@ The sources in the root folder include a list of dependencies, a configuration f
     *   The `plugins` array is empty.
 
 ### Notes about Tailwind CSS and PostCSS
-### Tailwind CSS
+#### Tailwind CSS
 
 Tailwind CSS is a utility-first CSS framework that provides low-level utility classes to build custom user interfaces without encouraging any two sites to look the same. Unlike traditional CSS frameworks like Bootstrap, which come with pre-designed components, Tailwind CSS focuses on providing utility classes that you can compose to create your own designs.
 
@@ -39,7 +39,7 @@ Tailwind CSS is a utility-first CSS framework that provides low-level utility cl
 
 - **Plugins**: Tailwind supports plugins, allowing you to extend its functionality with additional utilities or custom configurations.
 
-### PostCSS
+#### PostCSS
 
 PostCSS is a tool for transforming CSS with JavaScript plugins. It is not a CSS framework but rather a tool that allows you to use various plugins to extend and automate CSS processing. PostCSS can be used to add features to CSS that are not available by default, such as autoprefixing, nesting, variables, and more.
 
