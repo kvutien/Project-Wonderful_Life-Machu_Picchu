@@ -114,32 +114,34 @@ In a React or Next.js project, several of these folders are commonly used, each 
 
 - **app**: This folder is often used to store the main application components and logic. In a Next.js project, the `app` directory can be used to define routes and components using the new App Router introduced in Next.js 13.
 
-  In this project,  the **app** folder serves as equivalent to the usual Next.js **pages** folder. It contains a `page.tsx` as well as the **api** folder that contains React routes to handle form submissions, to fetch data from a database, or to perform other server-side operations (here it calls on the Privy authentication service).
+  👉 In this project,  the **app** folder serves as equivalent to the usual Next.js **pages** folder. It contains a `page.tsx` as well as the **api** folder that contains React routes to handle form submissions, to fetch data from a database, or to perform other server-side operations (here it calls on the Privy authentication service).
 
 - **components**: This folder is commonly used to store reusable UI components. Each component typically has its own file or subdirectory, making it easier to manage and reuse components across the application.
 
-  In this project,  the **components** folder contains a **chatbot** folder and a **helper** folder that contains React routes to handle a chatbot and to collect the parameters of a helper program.
+  👉 In this project,  the **components** folder contains a **chatbot** folder and a **helper** folder that contains React routes to handle a chatbot and to collect the parameters of a helper program.
 
 - **data**: This folder is not specific to React or Next.js but can be used to store static data files, such as JSON files, that the application might need. It's not typically created by React or Next.js itself but can be part of a project structure.
 
-  In this project,  the **data** folder contains the TypeScript code to collect the profile of a person in need, makes a vector embedding and stores the results on IPFS.
+  👉 In this project,  the **data** folder contains the TypeScript code to collect the profile of a person in need, makes a vector embedding and stores the results on IPFS.
 
 - **hooks**: This folder is used to store custom React hooks. Hooks are functions that let you use state and other React features in functional components. Custom hooks allow you to extract and reuse logic across different components.
 
-  In this project,  the **hooks** folder contains the TypeScript code to authenticate the user using the Privy service.
+  👉 In this project,  the **hooks** folder contains the TypeScript code to authenticate the user using the Privy service.
 
 - **images**: This folder is used to store image assets used in the README.md file. It's not created by React or Next.js but is a common practice to organize assets in a separate folder.
 
 - **lib**: This folder can be used to store utility functions or libraries that are used across the application. It's not specific to React or Next.js but can be part of a project structure.
 
-  In this project,  the **lib** folder contains the TypeScript code to call the PINATA service to store the profiles on IPFS.
+  👉 In this project,  the **lib** folder contains the TypeScript code to call the PINATA service to store the profiles on IPFS.
 
 - **public**: This folder is created by React when you set up a new project using Create React App, and by Next.js when you initialize a new project. It contains static files that are served directly by the web server, such as the `index.html` file and other assets like images or favicons.
+
+  👉 In this project,  the **public** folder contains only the Machu Picchu logos.
 
 - **types**: This folder is used to store TypeScript type definitions if you are using TypeScript in your React or Next.js project. It helps in organizing type declarations and interfaces.
 
 - **utils**: This folder is used to store utility functions and helpers that are used across the application. It's not specific to React or Next.js but is a common practice to keep utility code separate from component logic.
 
-  In this project,  the **utils** folder contains the actual TypeScript code to  make a vector embedding, store the results on IPFS and do similarity checks.
+  👉 In this project,  the **utils** folder contains the actual TypeScript code to  make a vector embedding, store the results on IPFS and do similarity checks.
 
 In summary, folders like `components`, `hooks`, `public`, and `utils` are commonly used in React and Next.js projects and serve specific purposes related to organizing components, custom hooks, static files, and utility functions, respectively. The other folders can also be part of a React or Next.js project but are not specific to these frameworks themselves.
