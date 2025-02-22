@@ -99,7 +99,7 @@ In a typical Next.js application, the entry point is not an `index.html` file as
 
 - **Pages Directory**: Next.js uses a **pages** directory to define the routes of your application. Each file in the **pages** directory automatically becomes a route. For example, a file named `index.js` or `index.tsx` in the **pages** directory serves as the entry point for the root URL of the application. 
   
-  In this project, there is a `page.tsx` in the **app** folder
+  In this project,  the **app** folder serves as equivalent to the **pages** folder. It contains a `page.tsx` as well as the **api** folder that contains React routes to handle form submissions, to fetch data from a database, or to perform other server-side operations (here it calls on the Privy authentication service).
 
 - **Automatic Code Splitting**: Next.js handles code splitting automatically, so you don't need to manually configure an entry point like `index.html`. Instead, Next.js compiles and serves the necessary JavaScript and HTML for each page.
 
