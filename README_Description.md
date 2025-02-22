@@ -67,24 +67,24 @@ In a typical Next.js application, the entry point is not an `index.html` file as
 In summary, while a traditional React application might use an `index.html` file as the entry point, a Next.js application uses the **pages** directory to define routes and entry points, with Next.js handling the compilation and serving of the application.
 
 ## Other folders
-In a typical React project, several of these folders are commonly used, each serving a specific purpose. Here's a breakdown of what each folder might contain if it is created by React:
+In a React or Next.js project, several of these folders are commonly used, each serving a specific purpose. Here's a breakdown of what each folder might contain if it is created by React or Next.js:
 
-- **app**: This folder is often used to store the main **Next.js** application components and logic. It might contain the root component of the application and other high-level components that make up the core structure of the app.
+- **app**: This folder is often used to store the main application components and logic. In a Next.js project, the `app` directory can be used to define routes and components using the new App Router introduced in Next.js 13.
 
 - **components**: This folder is commonly used to store reusable UI components. Each component typically has its own file or subdirectory, making it easier to manage and reuse components across the application.
 
-- **data**: This folder is not specific to React but can be used to store static data files, such as JSON files, that the application might need. It's not typically created by React itself but can be part of a React project structure.
+- **data**: This folder is not specific to React or Next.js but can be used to store static data files, such as JSON files, that the application might need. It's not typically created by React or Next.js itself but can be part of a project structure.
 
 - **hooks**: This folder is used to store custom React hooks. Hooks are functions that let you use state and other React features in functional components. Custom hooks allow you to extract and reuse logic across different components.
 
-- **images**: This folder is used to store image assets used in the application. It's not created by React but is a common practice to organize assets in a separate folder.
+- **images**: This folder is used to store image assets used in the application. It's not created by React or Next.js but is a common practice to organize assets in a separate folder.
 
-- **lib**: This folder can be used to store utility functions or libraries that are used across the application. It's not specific to React but can be part of a React project structure.
+- **lib**: This folder can be used to store utility functions or libraries that are used across the application. It's not specific to React or Next.js but can be part of a project structure.
 
-- **public**: This folder is created by React when you set up a new project using Create React App. It contains static files that are served directly by the web server, such as the `index.html` file and other assets like images or favicons.
+- **public**: This folder is created by React when you set up a new project using Create React App, and by Next.js when you initialize a new project. It contains static files that are served directly by the web server, such as the `index.html` file and other assets like images or favicons.
 
-- **types**: This folder is used to store TypeScript type definitions if you are using TypeScript in your React project. It helps in organizing type declarations and interfaces.
+- **types**: This folder is used to store TypeScript type definitions if you are using TypeScript in your React or Next.js project. It helps in organizing type declarations and interfaces.
 
-- **utils**: This folder is used to store utility functions and helpers that are used across the application. It's not specific to React but is a common practice to keep utility code separate from component logic.
+- **utils**: This folder is used to store utility functions and helpers that are used across the application. It's not specific to React or Next.js but is a common practice to keep utility code separate from component logic.
 
-In summary, folders like `components`, `hooks`, `public`, and `utils` are commonly used in React projects and serve specific purposes related to organizing components, custom hooks, static files, and utility functions, respectively. The other folders can also be part of a React project but are not specific to React itself.
+In summary, folders like `components`, `hooks`, `public`, and `utils` are commonly used in React and Next.js projects and serve specific purposes related to organizing components, custom hooks, static files, and utility functions, respectively. The other folders can also be part of a React or Next.js project but are not specific to these frameworks themselves.
