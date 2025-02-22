@@ -1,6 +1,8 @@
 # Repository Description — Project Machu Picchu-*Wonderful Life*
 (February 2025)
 
+The project *Wonderful Life* is coded in TypeScript and using Next.JS.
+
 ## Root folder
 The sources in the root folder include a list of dependencies, a configuration file for Tailwind CSS, a TypeScript compiler options configuration file, and a Next.js configuration file.
 
