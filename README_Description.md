@@ -1,5 +1,5 @@
 # Repository Description — Project Machu Picchu-*Wonderful Life*
-(February 2025)
+*(February 2025)*
 
 The project *Wonderful Life* is coded in TypeScript and using Next.js.
 
