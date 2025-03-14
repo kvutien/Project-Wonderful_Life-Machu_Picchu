@@ -11,6 +11,30 @@ The sources in the root folder include a list of **dependencies**, a configurati
 *   The list in file `package.json` specifies details for various **Node.js modules**, including **versions, resolved locations, integrity checksums, and licenses**.
 *   It encompasses modules such as `@babel`, `@emotion`, `@eslint`, `@ethersproject`, `@lit`, `@marsidev/react-turnstile`, `@next`, `@noble/hashes`, `@pinata/sdk`, `axios`, `buffer`, `chalk`, `cookie-es`, `elliptic`, `eslint`, `form-data`, `js-yaml`, `lokijs`, `react`, `uuid`, `viem`, and many others.
 
+### .env file
+Some environment variables are set by a `.env` file that is not made public by git
+They can be found with the command 
+``` zsh
+kvutien@MacBookPro Wonderful_Life % grep -r "process.env" .
+./app/layout.tsx:          appId={process.env.NEXT_PUBLIC_PRIVY_APP_ID!}
+./app/providers.tsx:      appId={process.env.NEXT_PUBLIC_PRIVY_APP_ID!}
+./utils/profileProcessor.ts:const genAI = new GoogleGenerativeAI(process.env.NEXT_PUBLIC_GEMINI_API_KEY || '');
+./utils/ipfsUtils.ts:const PINATA_API_KEY = process.env.NEXT_PUBLIC_PINATA_API_KEY
+./utils/ipfsUtils.ts:const PINATA_SECRET_KEY = process.env.NEXT_PUBLIC_PINATA_SECRET_KEY
+./components/helper/HelperProgramsList.tsx:const genAI = new GoogleGenerativeAI(process.env.NEXT_PUBLIC_GEMINI_API_KEY || '');
+./lib/pinata.ts:const PINATA_API_KEY = process.env.NEXT_PUBLIC_PINATA_API_KEY
+./lib/pinata.ts:const PINATA_SECRET_KEY = process.env.NEXT_PUBLIC_PINATA_SECRET_KEY
+```
+List of environment vqiqbles
+- NEXT_PUBLIC_PRIVY_APP_ID
+- NEXT_PUBLIC_PRIVY_APP_ID
+- NEXT_PUBLIC_GEMINI_API_KEY
+- NEXT_PUBLIC_GEMINI_API_KEY
+- NEXT_PUBLIC_PINATA_API_KEY
+- NEXT_PUBLIC_PINATA_API_KEY
+- NEXT_PUBLIC_PINATA_SECRET_KEY
+- NEXT_PUBLIC_PINATA_SECRET_KEY
+
 ### Tailwind CSS Configuration File:
 
 *   There are two Tailwind CSS configuration files.
